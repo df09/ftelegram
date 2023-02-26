@@ -36,7 +36,8 @@ def need_send(text):
             return False
     return True
 def send(render):
-    client.loop.run_until_complete(client.send_message('isushkov_filter', render))
+    client.loop.run_until_complete(client.send_message(
+        'isushkov_filter', render, link_preview=False))
 def wait(sec):
     print(f'sleep({sec}s)...')
     for i in tqdm(range(sec)):
@@ -52,6 +53,7 @@ with TelegramClient(f'isushkov_robot', api_id, api_hash) as client:
     for channel in filters:
         finish_msg = get_finish_msg()
         # parse messages
+        # TODO: remove dublicates
         for message in client.iter_messages(channel, reverse=True,
                 offset_date=get_offset(), limit=999):
             print(f'{channel}: {ftime(utime(message.date))}', end=' ')

@@ -20,7 +20,7 @@ def get_render(channel, date, text, msg_id):
     return f'[{header}](https://t.me/{channel}/{msg_id})\n\n{text}'
 
 def get_offset():
-    last_offset = filters[channel]['offset']
+    last_offset = offsets[channel]
     if last_offset:
         return last_offset + timedelta(seconds=1)
     return datetime.now() - timedelta(days=3) + timedelta(hours=5)
@@ -45,8 +45,10 @@ def wait(sec):
 
 api_id = 29350618
 api_hash = '1d3d60a614af26ab32058f86f68a1536'
-f_filters = 'f-work.yml'
+f_filters = 'filters/work.yml'
+f_offsets = 'filters/work-offsets.yml'
 filters = yml2dict(f_filters)
+offsets = yml2dict(f_offsets)
 
 with TelegramClient(f'isushkov_robot', api_id, api_hash) as client:
     # parse channels
@@ -67,6 +69,6 @@ with TelegramClient(f'isushkov_robot', api_id, api_hash) as client:
                     print(f'{channel}: {ftime(utime(message.date))} - send after wait...')
                     send(render)
             # save offset
-            filters[channel]['offset'] = message.date
-            dict2yml(filters, f_filters)
+            offsets[channel] = message.date
+            dict2yml(offsets, f_offsets)
         client.loop.run_until_complete(client.send_message('isushkov_filter', finish_msg))

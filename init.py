@@ -5,10 +5,6 @@ import yaml
 import time
 import re
 
-api_id = 29350618
-api_hash = '1d3d60a614af26ab32058f86f68a1536'
-pwd = '/home/df09/init/projects/telegram_filter'
-
 def yml2dict(f):
     with open(f, encoding='utf-8') as f:
         return yaml.safe_load(f)
@@ -18,23 +14,23 @@ def dict2yml(data, f, sort=False):
     return True
 def utime(date): return date - timedelta(hours=5)
 def ftime(date): return date.strftime('%H:%M:%S/%d.%m')
-def get_init_msg(): return f"**{channel}.** {ftime(utime(get_offset()))}"
+def get_finish_msg(): return f"**finish {channel}** <{ftime(utime(get_offset()))}"
 def get_render(channel, date, text, msg_id):
     header = f'{channel}: {utime(message.date).strftime("%H:%M %A (%d %b)")}'
     return f'[{header}](https://t.me/{channel}/{msg_id})\n\n{text}'
 
 def get_offset():
-    last_offset = config[channel]['offset']
+    last_offset = filters[channel]['offset']
     if last_offset:
         return last_offset + timedelta(seconds=1)
     return datetime.now() - timedelta(days=3) + timedelta(hours=5)
 def need_send(text):
     if not text: text = ''
-    for incl in config[channel]['incls']:
+    for incl in filters[channel]['incls']:
         if not re.search(incl, text, re.IGNORECASE):
             print(f'skip (must incl "{incl}")')
             return False
-    for excl in config[channel]['excls']:
+    for excl in filters[channel]['excls']:
         if re.search(excl, text, re.IGNORECASE):
             print(f'skip (need excl "{excl}")')
             return False
@@ -46,13 +42,15 @@ def wait(sec):
     for i in tqdm(range(sec)):
         time.sleep(1)
 
-filters = f'{pwd}/f-work.yml'
-config = yml2dict(filters)
+api_id = 29350618
+api_hash = '1d3d60a614af26ab32058f86f68a1536'
+f_filters = 'f-work.yml'
+filters = yml2dict(f_filters)
 
-with TelegramClient(f'{pwd}/isushkov_robot', api_id, api_hash) as client:
+with TelegramClient(f'isushkov_robot', api_id, api_hash) as client:
     # parse channels
-    for channel in config:
-        client.loop.run_until_complete(client.send_message('isushkov_filter', get_init_msg()))
+    for channel in filters:
+        finish_msg = get_finish_msg()
         # parse messages
         for message in client.iter_messages(channel, reverse=True,
                 offset_date=get_offset(), limit=999):
@@ -67,5 +65,6 @@ with TelegramClient(f'{pwd}/isushkov_robot', api_id, api_hash) as client:
                     print(f'{channel}: {ftime(utime(message.date))} - send after wait...')
                     send(render)
             # save offset
-            config[channel]['offset'] = message.date
-            dict2yml(config, filters)
+            filters[channel]['offset'] = message.date
+            dict2yml(filters, f_filters)
+        client.loop.run_until_complete(client.send_message('isushkov_filter', finish_msg))

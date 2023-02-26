@@ -14,7 +14,7 @@ def dict2yml(data, f, sort=False):
     return True
 def utime(date): return date - timedelta(hours=5)
 def ftime(date): return date.strftime('%H:%M:%S/%d.%m')
-def get_finish_msg(): return f"**finish {channel}** <{ftime(utime(get_offset()))}"
+def get_finish_msg(): return f"finish **{channel}** <{ftime(utime(get_offset()))}"
 def get_render(channel, date, text, msg_id):
     header = f'{channel}: {utime(message.date).strftime("%H:%M %A (%d %b)")}'
     return f'[{header}](https://t.me/{channel}/{msg_id})\n\n{text}'

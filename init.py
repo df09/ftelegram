@@ -14,7 +14,7 @@ def dict2yml(data, f, sort=False):
     return True
 def utime(date): return date - timedelta(hours=5)
 def ftime(date): return date.strftime('%H:%M:%S/%d.%m')
-def get_start_msg(): return f"**{channel}** <{ftime(utime(get_offset()))}"
+def get_start_msg(): return f"**{channel}** >{ftime(utime(get_offset()))}"
 def get_render(channel, date, text, msg_id):
     header = f'{channel}: {utime(message.date).strftime("%H:%M %A (%d %b)")}'
     return f'[{header}](https://t.me/{channel}/{msg_id})\n\n{text}'
@@ -31,7 +31,6 @@ def need_send(text):
             print(f'skip (must incl "{incl}")')
             return False
     for excl in filters[channel]['excls']:
-        print(excl)
         if re.search(excl, text, re.IGNORECASE):
             print(f'skip (need excl "{excl}")')
             return False
@@ -73,22 +72,21 @@ with TelegramClient(f'isushkov_robot', api_id, api_hash) as client:
             # save offset
             offsets[channel] = message.date
             dict2yml(offsets, f_offsets)
-        # # TODO: remove dublicates
-        # msgs = []
-        # for m in client.iter_messages('isushkov_filter', reverse=True, limit=999):
-        #     if m.text:
-        #         msgs.append(m)
-        # hashs = {}
-        # for i,m in enumerate(msgs):
-        #     print('-------------')
-        #     print(m.date)
-        #     print(m.text)
-        #     length = len(m.text.splitlines())
-        #     if length > 2:
-        #     #     # remove header
-        #     #     m_hash = hash(m.text)
-        #     #     # if hash already exitst:
-        #     #     #     delete msg from channel
-        #     #     # save hash
-        #     print('')
-        #     exit()
+        # remove dublicates
+        m_hashs = {}
+        for m in client.iter_messages('isushkov_filter', reverse=True, limit=999):
+            # filter
+            if not m.text:
+                continue
+            lines = m.text.splitlines()
+            if len(lines) < 3:
+                continue
+            # remove dublicates
+            m_hash = hash(''.join(lines[2:]))
+            dublicates = [mid for mid,mhash in m_hashs.items() if m_hash == mhash]
+            if dublicates:
+                client.loop.run_until_complete(client.delete_messages(
+                    'isushkov_filter', message_ids=dublicates))
+                print(f'{channel}: remove dublicates - {dublicates}')
+            # save hash
+            m_hashs[m.id] = m_hash

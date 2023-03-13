@@ -7,6 +7,11 @@ rusrek_com:
   - '\+1\(718\)568-9739' # худ-мет
   - '\+1\(347\)993-3518' # agent-cheater
   - '\+1\(646\)236-3939' # printing
+  - '\+1\(718\)644-1169' # expired
+  - '\+1\(917\)589-6925' # not for helpers
+  - '\+1\(646\)220-7313' # expired
+  - '\+1\(718\)490-7179' # expired
+  - '\+1\(646\)204-3526' # expired
   # special
   - Еlectricians wanted 3 years minimum experience
   - ТРЕБУЕТСЯ НА РАБОТУ МЕНЕДЖЕР ПАРКОВКИ И ПАРКОВЩИКИ
@@ -124,3 +129,7 @@ rusrek_com:
   - Если вы случайно без работы
   - хочешь стать .*
   - тренинг
+# JobsInNewYork:
+#   incls: []
+#   excls:
+#     -

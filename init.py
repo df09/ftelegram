@@ -5,6 +5,7 @@ import yaml
 import time
 import re
 
+# formaters
 def yml2dict(f):
     with open(f, encoding='utf-8') as f:
         return yaml.safe_load(f)
@@ -14,6 +15,8 @@ def dict2yml(data, f, sort=False):
     return True
 def utime(date): return date - timedelta(hours=5)
 def ftime(date): return date.strftime('%H:%M:%S/%d.%m')
+
+# decorators
 def send_start_msg():
     client.loop.run_until_complete(client.send_message(receiver, get_start_msg()))
 def get_start_msg(): return f"**{channel}** >{ftime(utime(get_offset()))}"

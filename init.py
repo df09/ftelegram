@@ -4,6 +4,11 @@ from tqdm import tqdm
 import yaml
 import time
 import re
+import signal
+import sys
+def signal_handler(sig, frame):
+    print("Ctrl+C: exit.")
+    sys.exit(0)
 
 # formaters
 def yml2dict(f):
@@ -21,7 +26,7 @@ def send_start_msg():
     client.loop.run_until_complete(client.send_message(receiver, get_start_msg()))
 def get_start_msg(): return f"**{channel}** >{ftime(utime(get_offset()))}"
 def get_render(channel, date, text, msg_id):
-    header = f'{channel}: {utime(message.date).strftime("%H:%M %A (%d %b)")}'
+    header = f'{channel.upper()}: {utime(message.date).strftime("%H:%M %A (%d %b)")}'
     return f'[{header}](https://t.me/{channel}/{msg_id})\n\n{text}'
 
 def get_offset():
@@ -33,11 +38,11 @@ def need_send(text):
     if not text: text = ' '
     for incl in filters[channel]['incls']:
         if not re.search(incl, text, re.IGNORECASE):
-            print(f'skip (must incl "{incl}")')
+            print(f'skip (must have "{incl}")')
             return False
     for excl in filters[channel]['excls']:
         if re.search(excl, text, re.IGNORECASE):
-            print(f'skip (need excl "{excl}")')
+            print(f'skip (excl "{excl}")')
             return False
     return True
 def send(render):
@@ -49,25 +54,29 @@ def wait(sec):
         time.sleep(1)
 
 # init vars
-receiver = 'isushkov_filter'
+signal.signal(signal.SIGINT, signal_handler)
+receiver = 'grp_filter_work_isushkov'
 f_filters = 'filters/work.yml'
 f_offsets = 'filters/work-offsets.yml'
 filters = yml2dict(f_filters)
 offsets = yml2dict(f_offsets)
-
 # start cli
 api_id = 29350618
 api_hash = '1d3d60a614af26ab32058f86f68a1536'
+
 with TelegramClient(f'isushkov_robot', api_id, api_hash) as client:
-    # parse channels
+    # channel
     for channel in filters:
-        # parse messages
+        if channel.startswith("x_"):
+            continue
+        # parse and send messages
         for message in client.iter_messages(channel, reverse=True,
                 offset_date=get_offset(), limit=999):
             print(f'{channel}: {ftime(utime(message.date))}', end=' ')
             if need_send(message.text):
                 render = get_render(channel, message.date, message.text, message.id)
                 try:
+                    # send
                     send(render)
                     print('>>>> SEND')
                 except errors.rpcerrorlist.FloodWaitError as e:
@@ -77,7 +86,7 @@ with TelegramClient(f'isushkov_robot', api_id, api_hash) as client:
             # save offset
             offsets[channel] = message.date
             dict2yml(offsets, f_offsets)
-        # remove dublicates
+        # post-manage: remove dublicates
         m_hashs = {}
         for m in client.iter_messages(receiver, reverse=True, limit=999):
             # filter

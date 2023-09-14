@@ -98,6 +98,7 @@ async def send_report():
     input_file = await client.upload_file(file_path)
     await client.send_file(receiver, input_file, caption='report', link_preview=False)
     await client.disconnect()
+    print(f'RECEIVER: send report - DONE.')
 
 # init vars
 signal.signal(signal.SIGINT, signal_handler)

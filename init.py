@@ -40,7 +40,16 @@ def need_send(text):
         if not re.search(incl, text, re.IGNORECASE):
             print(f'skip (must have "{incl}")')
             return False
-    for excl in filters[channel]['excls']:
+    # flatten
+    excls = filters[channel]['excls']
+    f_excls = []
+    for e in excls:
+        if isinstance(e, list):
+            for i in e:
+                f_excls.append(i)
+        else:
+            f_excls.append(i)
+    for excl in f_excls:
         if re.search(excl, text, re.IGNORECASE):
             print(f'skip (excl "{excl}")')
             return False

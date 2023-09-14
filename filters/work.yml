@@ -5,11 +5,14 @@ x_excls-common: &x_excls-common
   - '[а-я]*і[а-я]*'
   - \bидиш\b
   # location
-  - \bштат (пенсильвания|калифорния)
-  - \b(Connecticut|Rhode Island|Massachusetts|New Hampshire|Maine)
   - \bstaten island
   - \blong island
+  - \b(alabama|alaska|arizona|arkansas|california|colorado|connecticut|delaware|florida|georgia|hawaii|idaho|illinois|indiana|iowa|kansas|kentucky|louisiana|maine|maryland|massachusetts|michigan|minnesota|mississippi|missouri|montana|nebraska|nevada|new hampshire|new jersey|new mexico|north carolina|north dakota|ohio|oklahoma|oregon|pennsylvania|rhode island|south carolina|south dakota|tennessee|texas|utah|vermont|virginia|washington|west virginia|wisconsin|wyoming)\s
+  - \b(айдахо|айова|алабама|аляска|аризона|арканзас|вайоминг|вашингтон|вермонт|вирджиния|висконсин|гавайи|делавэр|джорджия|западная вирджиния|иллинойс|индиана|калифорния|канзас|кентукки|колорадо|коннектикут|луизиана|массачусетс|миннесота|миссисипи|миссури|мичиган|монтана|мэн|мэриленд|небраска|невада|нью-гэмпшир|нью-джерси|нью-мексико|огайо|оклахома|орегон|пенсильвания|род-айленд|северная дакота|северная каролина|теннесси|техас|флорида|южная дакота|южная каролина|юта)\s
   # mens
+  - \bавтосервис\s
+  - \bHVAC\s
+  - \bменеджер по электро
   - \bэлектрики(?:\s+\w+){0,2}\s(с|со)(?:\s+\w+){0,2}\s(стаж[а-я]*|опыт[а-я]*)
   - \bводител[а-я]*
   - \bdriver
@@ -36,11 +39,14 @@ x_excls-common: &x_excls-common
   - \bdental
   - \bстоматолог
   - \bпарикмах[а-я]*
+  - \bbarber
   - \b(мужск[а-я]*|женс[а-я]*) мастер
   - \b(бани|баня|баню)\s
   - \bдетск[а-я]* сад[а-я]*
   - \bnursing home
   - \bпрестарел
+  - \bbody sculpting\s
+  - \bmassage\s
   # womens
   - сиделки, home attendants
   - \b(швей|швея|швеи|портн[а-я]{0,3})
@@ -73,16 +79,16 @@ rusrek_com:
   incls:
   - __Работа - требуются
   excls:
-    <<: *x_excls-common
+    - *x_excls-common
 JobsInNewYork:
   incls: []
   excls:
-    <<: *x_excls-common
+    - *x_excls-common
 jobs_in_new_york:
   incls: []
   excls:
-    <<: *x_excls-common
+    - *x_excls-common
 nyjobs:
   incls: []
   excls:
-    <<: *x_excls-common
+    - *x_excls-common

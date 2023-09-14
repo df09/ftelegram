@@ -2,7 +2,7 @@ x_excls_common: &x_excls_common
   # cheked
   - \+1\(718\)440-6841 # ny.roma
   # localization
-  - '\w*і\w*'
+  - '\[а-я]*і\[а-я]*'
   - \bидиш\b
   # location
   - \bstaten island

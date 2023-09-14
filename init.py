@@ -152,10 +152,10 @@ with TelegramClient(f'isushkov_robot', api_id, api_hash) as client:
 
     # receiver: remove dublicated
     m_hashs = {}
+    c = 0
     for m in client.iter_messages(receiver, reverse=True, limit=999):
         if not m.text: continue # skip admins messages
         m_hash = hash(m.text)
-        c = 0
         m_dublicated_ids = [mid for mid,mhash in m_hashs.items() if mhash == m_hash]
         if m_dublicated_ids:
             c += 1

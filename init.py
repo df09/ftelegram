@@ -91,14 +91,14 @@ def process_message(m):
     # Удалить пустые строки, добавить пустую строку в конце
     non_empty_lines = [line for line in processed_lines if line.strip()]
     return '\n'.join(non_empty_lines) + '\n'
-async def send_report():
-    client = TelegramClient('isushkov_robot', api_id, api_hash)
-    await client.start()
-    file_path = "report.txt"
-    input_file = await client.upload_file(file_path)
-    await client.send_file(receiver, input_file, caption='report', link_preview=False)
-    await client.disconnect()
-    print(f'RECEIVER: send report - DONE.')
+# async def send_report():
+#     client = TelegramClient('isushkov_robot', api_id, api_hash)
+#     await client.start()
+#     file_path = "report.txt"
+#     input_file = await client.upload_file(file_path)
+#     await client.send_file(receiver, input_file, caption='report', link_preview=False)
+#     await client.disconnect()
+#     print(f'RECEIVER: send report - DONE.')
 
 # init vars
 signal.signal(signal.SIGINT, signal_handler)
@@ -168,13 +168,13 @@ with TelegramClient(f'isushkov_robot', api_id, api_hash) as client:
             m_hashs[m.id] = m_hash
     print(f'RECEIVER: dublicated messages - DONE.')
 
-    # save report
-    msgs = []
-    for m in client.iter_messages(receiver, reverse=True, offset_date=get_offset(), limit=999):
-        msgs.append(process_message(m.text))
-    file_path = 'report.txt'
-    with open(file_path,'w') as f:
-        f.write('\n'.join(msgs))
+    # # save report
+    # msgs = []
+    # for m in client.iter_messages(receiver, reverse=True, offset_date=get_offset(), limit=999):
+    #     msgs.append(process_message(m.text))
+    # file_path = 'report.txt'
+    # with open(file_path,'w') as f:
+    #     f.write('\n'.join(msgs))
 
-# send report
-asyncio.run(send_report())
+# # send report
+# asyncio.run(send_report())

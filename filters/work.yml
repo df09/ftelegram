@@ -1,94 +1,113 @@
-x_excls-common: &x_excls-common
+x_excls_common: &x_excls_common
   # cheked
   - \+1\(718\)440-6841 # ny.roma
   # localization
-  - '[а-я]*і[а-я]*'
+  - '\w*і\w*'
   - \bидиш\b
   # location
   - \bstaten island
   - \blong island
-  - \b(alabama|alaska|arizona|arkansas|california|colorado|connecticut|delaware|florida|georgia|hawaii|idaho|illinois|indiana|iowa|kansas|kentucky|louisiana|maine|maryland|massachusetts|michigan|minnesota|mississippi|missouri|montana|nebraska|nevada|new hampshire|new jersey|new mexico|north carolina|north dakota|ohio|oklahoma|oregon|pennsylvania|rhode island|south carolina|south dakota|tennessee|texas|utah|vermont|virginia|washington|west virginia|wisconsin|wyoming)\s
-  - \b(айдахо|айова|алабама|аляска|аризона|арканзас|вайоминг|вашингтон|вермонт|вирджиния|висконсин|гавайи|делавэр|джорджия|западная вирджиния|иллинойс|индиана|калифорния|канзас|кентукки|колорадо|коннектикут|луизиана|массачусетс|миннесота|миссисипи|миссури|мичиган|монтана|мэн|мэриленд|небраска|невада|нью-гэмпшир|нью-джерси|нью-мексико|огайо|оклахома|орегон|пенсильвания|род-айленд|северная дакота|северная каролина|теннесси|техас|флорида|южная дакота|южная каролина|юта)\s
-  # mens
-  - \bавтосервис\s
-  - \bHVAC\s
-  - \bменеджер по электро
-  - \bэлектрики(?:\s+\w+){0,2}\s(с|со)(?:\s+\w+){0,2}\s(стаж[а-я]*|опыт[а-я]*)
-  - \bводител[а-я]*
-  - \bdriver
-  - \bowner operator
-  - \bповар[а-я]*
-  - \bизготов[а-я]*(?:\s+\w+){0,2}\sблюд
-  - \bбухгалтер[а-я]*
-  - \bbookkeeper
-  - \bнеобходимо наличие авто
+  - \b(alabama|alaska|arizona|arkansas|california|colorado|connecticut|delaware|florida|georgia|hawaii|idaho|illinois|indiana|iowa|kansas|kentucky|louisiana|maine|maryland|massachusetts|michigan|minnesota|mississippi|missouri|montana|nebraska|nevada|new hampshire|new jersey|new mexico|north carolina|north dakota|ohio|oklahoma|oregon|pennsylvania|rhode island|south carolina|south dakota|tennessee|texas|utah|vermont|virginia|washington|west virginia|wisconsin|wyoming)\b
+  - \b(айдахо|айова|алабама|аляска|аризона|арканзас|вайоминг|вашингтон|вермонт|вирджиния|висконсин|гавайи|делавэр|джорджия|западная вирджиния|иллинойс|индиана|калифорния|канзас|кентукки|колорадо|коннектикут|луизиана|массачусетс|миннесота|миссисипи|миссури|мичиган|монтана|мэн|мэриленд|небраска|невада|нью-гэмпшир|нью-джерси|нью-мексико|огайо|оклахома|орегон|пенсильвания|род-айленд|северная дакота|северная каролина|теннесси|техас|флорида|южная дакота|южная каролина|юта)\b
+  # universal
+  - \bхлебопекар\w*
+  - \b(бани|баня|баню)\b
+  - приглашаем кассиршу в нашу кофейню
+  - \b(швей|швея|швеи|портн\w*)\b
+  - \bfront desk
+  - агентства по трудоустройству
   - \bмужчина пенсионного возраста
   - \bсапожник
-  - \b(уборщ[а-я]*|cleaner)
-  - \bчасовщ[а-я]*
-  # universal
-  - агентства по трудоустройству
-  - \bхлебопекар[а-я]*
-  - \bбирж[а-я]*(?:\s+\w+){0,1}\sтрейд[а-я]*
-  - \bтренер
+  - \b(уборщ\w*|cleaner)
+  - \bчасовщ\w*\b
+  - \b(grubhub|instakart|doordash)\b
+  # driver
+  - \b(водител|driver)\w*\b
+  - \bowner\w*(?:\s+\w+){0,2}\s+operator
+  - \bовнер\w+\b
+  - \bнеобходимо наличие авто
+  - \b(автосервис|автосалон)\w+\b
+  - \bкомпьютер\w*\s+диагност\w*\s+трак\w*
+  # electro
+  - \bHVAC\b
+  - \bменеджер по электро
+  - \bэлектрик(?:\s+\w+){0,2}\s(с|со)(?:\s+\w+){0,2}\s(стаж\w*|опыт\w*)
+  # food
+  - \b(повар|кондитер)\w*\b
+  - \bизготов\w*(?:\s+\w+){0,2}\sблюд\b
+  # party
+  - \b(пев[аяоыиуеёюя]щ?и?в|муз[иыаёиюя]к[ао]н?т?)\s
+  # enducation
+  - \b(school|школа)\b
+  - \bучител\w*
+  - \b(барбер|barber|hair stylist|hairstylist)
+  - \b(мужск\w*|женс\w*)\s+мастер
+  - \bbody sculpting\b
+  - \bдетск\w* сад\w*
+  # finance/goveremnt
+  - \b(бухгалтер|bookkeeper)\w*\b
   - \binsurance broker
-  - \bучител[а-я]*
-  - \bмедицин[а-я]*
+  - \bбирж\w*(?:\s+\w+){0,1}\sтрейд\w*
+  - \b(PR|пиар)\w*\s+менедж\w*\b
+  - \b(brokerage|брокер)\w*\b
+  # style
+  - \b(тренер|маникюр|парикмах|ресниц|бровист|ногтям|колорист)\w*\b
+  # medicine
+  - \b(аптек|медицин|врач|dental|стоматолог)\w*\b
   - medical offic
-  - \bврач[а-я]*\s
-  - \bdental
-  - \bстоматолог
-  - \bпарикмах[а-я]*
-  - \bbarber
-  - \b(мужск[а-я]*|женс[а-я]*) мастер
-  - \b(бани|баня|баню)\s
-  - \bдетск[а-я]* сад[а-я]*
-  - \bnursing home
-  - \bпрестарел
-  - \bbody sculpting\s
-  - \bmassage\s
-  # womens
-  - сиделки, home attendants
-  - \b(швей|швея|швеи|портн[а-я]{0,3})
-  - \b(ННА|HHA)
-  - \bnursing
-  - \bHome Care
-  - \bfront desk
-  - \b(няня|няню|нянь|няни|бебисит[а-я]*)
-  - \b(помощницу|помощница)
-  - \bманикюр
-  - \bкосметолог
-  - \bмассаж[а-я]*
-  - \bhome attendant
-  - \bВЕВ QUEEN
+  # care
+  - \b(nursing|сиделк|home attend)\w*\b
+  - \b(ННА|HHA|Home Care|няня|няню|нянь|няни|бебисит\w*)\b
+  - \bпрестарел\w+\b
+  # body
+  - \bвев queen
   - \bтанцовщицы
-  - \b\s(gogo|go-go)\s
-  - \b(ищ[а-я]*|приглаш[а-я]*|треб[а-я]*)(?:\s+\w+){0,1}\sдевуш[а-я]*
+  - \b\s(gogo|go-go)\b
+  - \b(ищ\w*|приглаш\w*|треб\w*)(?:\s+\w+){0,1}\sдевуш\w*
   - \bдевушка
-  - \bмолодые(?:\s+\w+){0,1}\sдевуш[а-я]*
-  - \bищу(?:\s+\w+){0,1}\sдевуш[а-я]*
-  - \bонлайн(?:\s+\w+){0,1}\sдевуш[а-я]*
-  - \bдевуш[а-я]*(?:\s+\w+){0,1}\sвнешности
+  - \bмолодые(?:\s+\w+){0,1}\sдевуш\w*
+  - \bищу(?:\s+\w+){0,1}\sдевуш\w*
+  - \bонлайн(?:\s+\w+){0,1}\sдевуш\w*
+  - \bдевуш\w*(?:\s+\w+){0,1}\sвнешности
   - компаньонка
   - \bраскрепощенные сотрудницы
-  # scam
+  # spam
   - \bсверхприбыльно
   - \bтренинг
   - \bхочу помочь новоприезжим
+  - \bкурс\w*(?:\s+\w+){0,3}\s(програм|тестир)
+  - facebook групп
+  - иммиграционный адвокат daniel m pell
+  - low profile car hauler
+  - зарегистрируйтесь на курс
+  - bazar.club поможет сделать адаптацию более плавной
+  - нетрудоемкий быстрый заработок
+  - прод\w*(?:\s+\w+){0,4}\s+бизнес\w*
+  - \bобмен\w*(?:\s+\w+){0,4}\s+(валют\w*|usdt|usd|zelle|rub)\b
+  - \bподписывайся\b
+  - вступай в чат
+x_excls-multi_common: &x_excls-multi_common
+  - \bтребования.*личный транспорт
+
 rusrek_com:
   incls:
-  - __Работа - требуются
+    - __Работа - требуются
   excls:
-    - *x_excls-common
+    - *x_excls_common
+    - *x_excls-multi_common
 JobsInNewYork:
   incls: []
   excls:
-    - *x_excls-common
+    - *x_excls_common
+    - *x_excls-multi_common
+    - license plumber
 jobs_in_new_york:
   incls: []
   excls:
-    - *x_excls-common
+    - *x_excls_common
+    - *x_excls-multi_common
 nyjobs:
   incls: []
   excls:
-    - *x_excls-common
+    - *x_excls_common
+    - *x_excls-multi_common

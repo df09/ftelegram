@@ -39,17 +39,18 @@ x_excls_common: &x_excls_common
   - \b(пев[аяоыиуеёюя]щ?и?в|муз[иыаёиюя]к[ао]н?т?)\s
   # enducation
   - \b(school|школа)\b
-  - \bучител\w*
+  - \b(учител|преподават)\w*\b
   - \b(барбер|barber|hair stylist|hairstylist)
   - \b(мужск\w*|женс\w*)\s+мастер
   - \bbody sculpting\b
   - \bдетск\w* сад\w*
-  # finance/goveremnt
+  # finance/goveremnt/office
   - \b(бухгалтер|bookkeeper)\w*\b
   - \binsurance broker
   - \bбирж\w*(?:\s+\w+){0,1}\sтрейд\w*
   - \b(PR|пиар)\w*\s+менедж\w*\b
   - \b(brokerage|брокер)\w*\b
+  - \bрекрут\w*\b
   # style
   - \b(тренер|маникюр|парикмах|ресниц|бровист|ногтям|колорист)\w*\b
   # medicine
@@ -94,20 +95,24 @@ rusrek_com:
     - __Работа - требуются
   excls:
     - *x_excls_common
+  excls-multi:
     - *x_excls-multi_common
 JobsInNewYork:
   incls: []
   excls:
     - *x_excls_common
-    - *x_excls-multi_common
     - license plumber
+  excls-multi:
+    - *x_excls-multi_common
 jobs_in_new_york:
   incls: []
   excls:
     - *x_excls_common
+  excls-multi:
     - *x_excls-multi_common
 nyjobs:
   incls: []
   excls:
     - *x_excls_common
+  excls-multi:
     - *x_excls-multi_common

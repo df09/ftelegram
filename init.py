@@ -155,26 +155,27 @@ with TelegramClient(f'isushkov_robot', api_id, api_hash) as client:
     c = 0
     for m in client.iter_messages(receiver, reverse=True, limit=999):
         if not m.text: continue # skip admins messages
-        m_hash = hash(m.text)
+        m_hash = hash(''.join(m.text.splitlines()[1:]))
         m_dublicated_ids = [mid for mid,mhash in m_hashs.items() if mhash == m_hash]
         if m_dublicated_ids:
             c += 1
             if c == 1:
                 print(f'RECEIVER: dublicated messages was removed:')
             client.loop.run_until_complete(client.delete_messages(receiver, message_ids=[str(m.id)]))
-            l = flatted(f'{str(m.id)}: "{m.text}"').replace('\n',' ')
+            l = flatted(re.sub(r'\(https?://\S+|www\.\S+', '', f'{str(m.id)}: "{m.text}"').replace('\n',' '))
             print(f'    {l}')
         else:
             m_hashs[m.id] = m_hash
     print(f'RECEIVER: dublicated messages - DONE.')
 
-    # # save report
-    # msgs = []
-    # for m in client.iter_messages(receiver, reverse=True, offset_date=get_offset(), limit=999):
-    #     msgs.append(process_message(m.text))
-    # file_path = 'report.txt'
-    # with open(file_path,'w') as f:
-    #     f.write('\n'.join(msgs))
+    # save report
+    msgs = []
+    for m in client.iter_messages(receiver, reverse=True, offset_date=get_offset(), limit=999):
+        msgs.append(process_message(m.text))
+    file_path = 'report.wiki'
+    with open(file_path,'w') as f:
+        f.write('\n'.join(msgs))
+    print(f'REPORT: done.')
 
 # # send report
 # asyncio.run(send_report())

@@ -1,42 +1,61 @@
 x_excls_common: &x_excls_common
-  # cheked
-  - \+1\(718\)440-6841 # ny.roma
   # localization
-  - '\[а-я]*і\[а-я]*'
+  - \b[а-яА-Я]*і[а-я]*\b
   - \bидиш\b
   # location
   - \bstaten island
   - \blong island
   - \b(alabama|alaska|arizona|arkansas|california|colorado|connecticut|delaware|florida|georgia|hawaii|idaho|illinois|indiana|iowa|kansas|kentucky|louisiana|maine|maryland|massachusetts|michigan|minnesota|mississippi|missouri|montana|nebraska|nevada|new hampshire|new jersey|new mexico|north carolina|north dakota|ohio|oklahoma|oregon|pennsylvania|rhode island|south carolina|south dakota|tennessee|texas|utah|vermont|virginia|washington|west virginia|wisconsin|wyoming)\b
   - \b(айдахо|айова|алабама|аляска|аризона|арканзас|вайоминг|вашингтон|вермонт|вирджиния|висконсин|гавайи|делавэр|джорджия|западная вирджиния|иллинойс|индиана|калифорния|канзас|кентукки|колорадо|коннектикут|луизиана|массачусетс|миннесота|миссисипи|миссури|мичиган|монтана|мэн|мэриленд|небраска|невада|нью-гэмпшир|нью-джерси|нью-мексико|огайо|оклахома|орегон|пенсильвания|род-айленд|северная дакота|северная каролина|теннесси|техас|флорида|южная дакота|южная каролина|юта)\b
+  - \bканад\w*\b
+  - \bкипр\b
   # universal
   - \bхлебопекар\w*
   - \b(бани|баня|баню)\b
   - приглашаем кассиршу в нашу кофейню
-  - \b(швей|швея|швеи|портн\w*)\b
+  - \b(швей|швея|швеи|портн)\w*\b
   - \bfront desk
   - агентства по трудоустройству
   - \bмужчина пенсионного возраста
   - \bсапожник
-  - \b(уборщ\w*|cleaner)
+  - \b(убор\w*|cleaner)
   - \bчасовщ\w*\b
   - \b(grubhub|instakart|doordash)\b
-  # driver
+  # driver/auto
   - \b(водител|driver)\w*\b
   - \bowner\w*(?:\s+\w+){0,2}\s+operator
   - \bовнер\w+\b
   - \bнеобходимо наличие авто
   - \b(автосервис|автосалон)\w+\b
   - \bкомпьютер\w*\s+диагност\w*\s+трак\w*
-  # electro
+  - \+1\(718\)249-6810
+  # electro/building
+  - \b(мастер|механик|электрик|техник)\w*
+  - \bавто(мастер|механик|электрик|техник)\w*
+  - \belectricians\b
   - \bHVAC\b
-  - \bменеджер по электро
   - \bэлектрик(?:\s+\w+){0,2}\s(с|со)(?:\s+\w+){0,2}\s(стаж\w*|опыт\w*)
-  # food
+  - \bплотник\w*\b
+  - \b(бригадир|foreman)\b
+  - \bsuperintendent\b
+  - \bsuper\b
+  - highway maintenance
+  # party/restorans/grosseries
+  - \bпев\w?ц\w*\b
+  - \nмуз\w?кант\w*\b
   - \b(повар|кондитер)\w*\b
   - \bизготов\w*(?:\s+\w+){0,2}\sблюд\b
-  # party
-  - \b(пев[аяоыиуеёюя]щ?и?в|муз[иыаёиюя]к[ао]н?т?)\s
+  - \bтр[эа]вел\w*агент\w*\b
+  - food service worker
+  - 347-733-4409 # русско-украинская кухня
+  # office
+  - \b(менеджер|manager)\w*\b
+  - \bsales.{0,10}(man|specialist)
+  - \bcustomer service\b
+  - \b(PR|пиар)\w*\s+менедж\w*\b
+  - \bрекрут\w*\b
+  - \bмаркетолог\w*\b
+  - accounts payable
   # enducation
   - \b(school|школа)\b
   - \b(учител|преподават)\w*\b
@@ -44,18 +63,23 @@ x_excls_common: &x_excls_common
   - \b(мужск\w*|женс\w*)\s+мастер
   - \bbody sculpting\b
   - \bдетск\w* сад\w*
-  # finance/goveremnt/office
+  - \+1\(917\)753-6577
+  # finance/goveremnt
   - \b(бухгалтер|bookkeeper)\w*\b
   - \binsurance broker
   - \bбирж\w*(?:\s+\w+){0,1}\sтрейд\w*
-  - \b(PR|пиар)\w*\s+менедж\w*\b
   - \b(brokerage|брокер)\w*\b
-  - \bрекрут\w*\b
+  - \bтребуется(?:\s+\w+){0,3}\sадвокат\b
+  - notary public licens
+  - civil service
   # style
-  - \b(тренер|маникюр|парикмах|ресниц|бровист|ногтям|колорист)\w*\b
+  - \b(массажист|тренер|маникюр|парикмах|ресниц|бровист|ногтям|колорист|косметолог)\w*\b
   # medicine
   - \b(аптек|медицин|врач|dental|стоматолог)\w*\b
   - medical offic
+  - кардиолог
+  # clean
+  - помощни\w*\s.*по уборке
   # care
   - \b(nursing|сиделк|home attend)\w*\b
   - \b(ННА|HHA|Home Care|няня|няню|нянь|няни|бебисит\w*)\b
@@ -81,15 +105,42 @@ x_excls_common: &x_excls_common
   - иммиграционный адвокат daniel m pell
   - low profile car hauler
   - зарегистрируйтесь на курс
-  - bazar.club поможет сделать адаптацию более плавной
   - нетрудоемкий быстрый заработок
   - прод\w*(?:\s+\w+){0,4}\s+бизнес\w*
   - \bобмен\w*(?:\s+\w+){0,4}\s+(валют\w*|usdt|usd|zelle|rub)\b
   - \bподписывайся\b
   - вступай в чат
+  - \bищу(?:\s+\w+){0,2}\s+работу\b
+  - иммиграционный адвокат gendelberg law
+  - \bbazar\.club[^/]
+  - шанс изменить жизнь в лучшую сторону
+  # tmp-1to1match
+  - стекольная компания приглашает на работу
+  - опытные рабочие следующих профессий
+  - бетонщиков, у которых имеется опыт
+  - официантки до 40 лет, с опытом работы и певица
+  - руководитель отдела продаж
+  - по работе с соцсетями
+  - специалистов по альпинизму
+  - наличие автомобиля
+  - требуется продавщица
+  - бесплатные курсы по подготовке работников
+  - laboratory animal caretaker
+  - подготовлю к получению лицензии
+  - girl needed
+  - 917-498-7307 # ищу реставратора антикварной деревянной мебели
+  - потенциальные получатели федеральных грантов
+  - cash@vacancybest.co # высокий доход в свободное время
+  - \bgeorgian\b
+  - приглашаем на постоянную работу девушку-официантку
+  # cheked
+  - \+1\(718\)440-6841 # ny.roma
+  - arthur@laptopmd.com # webdevelop wait
+  - 310-528-9321 # exec-assist wait
+  - 917-442-4778 # test-device wait
+  - lana@glasscompanyny.com # assist wait
 x_excls-multi_common: &x_excls-multi_common
-  - \bтребования.*личный транспорт
-
+  - \bтребования.*(личный транспорт|автомобиль)
 rusrek_com:
   incls:
     - __Работа - требуются

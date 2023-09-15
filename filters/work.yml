@@ -21,6 +21,7 @@ x_excls_common: &x_excls_common
   - \b(убор\w*|cleaner)
   - \bчасовщ\w*\b
   - \b(grubhub|instakart|doordash)\b
+  - \bювелир\w*\и
   # driver/auto
   - \b(водител|driver)\w*\b
   - \bowner\w*(?:\s+\w+){0,2}\s+operator
@@ -133,12 +134,15 @@ x_excls_common: &x_excls_common
   - cash@vacancybest.co # высокий доход в свободное время
   - \bgeorgian\b
   - приглашаем на постоянную работу девушку-официантку
+  - дополнительный доход для домохозяек
+  - 347-265-6186 # сборщик данных
   # cheked
   - \+1\(718\)440-6841 # ny.roma
   - arthur@laptopmd.com # webdevelop wait
   - 310-528-9321 # exec-assist wait
   - 917-442-4778 # test-device wait
   - lana@glasscompanyny.com # assist wait
+  - https://forms.kommo.com/rrccxlt # photo wait
 x_excls-multi_common: &x_excls-multi_common
   - \bтребования.*(личный транспорт|автомобиль)
 rusrek_com:

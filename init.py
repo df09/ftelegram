@@ -61,10 +61,14 @@ def flatte_filter_ruls(ruls):
     flatten = []
     for r in ruls:
         if isinstance(r, str):
+            r = r.replace('ё', 'е')
+            r = r.replace('й', 'и')
             flatten.append(r)
             continue
         if isinstance(r, list):
             for i in r:
+                i = i.replace('ё', 'е')
+                i = i.replace('й', 'и')
                 flatten.append(i)
     return flatten
 
@@ -75,14 +79,14 @@ def cat(text, max_length=100):
     text = re.sub(r' +', ' ', text)
     return text if len(text) < max_length else text[:max_length-3] + "..."
 def pretty_msg(channel, m, clean_text):
-    header = f'{channel.upper()}: {(m.date - timedelta(hours=5)).strftime("%H:%M %A (%d %b)")}'
+    header = f'{channel.upper()}: {(m.date - timedelta(hours=4)).strftime("%H:%M %A (%d %b)")}'
     return f'[{header}](https://t.me/{channel}/{m.id})\n\n{clean_text}'
 # logic
 def get_offset():
     last_offset = offsets[channel]
     if last_offset:
         return last_offset + timedelta(seconds=1)
-    return datetime.now() - timedelta(days=3) + timedelta(hours=5)
+    return datetime.now() - timedelta(days=3) + timedelta(hours=4)
 def apply_chanel_filters(log_pfx, text, channel_ruls):
     # empty
     if not text:
@@ -168,7 +172,7 @@ with TelegramClient(f'isushkov_robot', api_id, api_hash) as client:
         for m in client.iter_messages(channel, reverse=True, offset_date=get_offset(), limit=999):
             if not m.text: continue # skip enmpty messages
             clean_text = fix_en_ru_chars(m.text)
-            log_pfx = f'parse.{channel.upper()}: {(m.date - timedelta(hours=5)).strftime("%H:%M:%S/%d.%m")}'
+            log_pfx = f'parse.{channel.upper()}: {(m.date - timedelta(hours=4)).strftime("%H:%M:%S/%m.%d")}'
             if apply_chanel_filters(log_pfx, clean_text, filters[channel]):
                 render = pretty_msg(channel, m, clean_text)
                 try:

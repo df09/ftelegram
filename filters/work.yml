@@ -54,7 +54,7 @@ x_excls_common: &x_excls_common
   - гид по барам
   # office
   - (менеджер|manager)
-  - sales.{0,10}(man|specialist)
+  - sales\s+(man|specialist|person)
   - customer service
   - (PR|пиар)\w*\s+менедж
   - рекрут
@@ -123,6 +123,7 @@ x_excls_common: &x_excls_common
   # spam.finance
   - \w*(крипто|кpиптo|crypt|binance)
   - (валют|инвести|актив)
+  - \b(usdt|rub|bitcoin)\b
   # tmp-1to1match
   - 347-265-6186 # сборщик данных
   - 917-498-7307 # ищу реставратора антикварной деревянной мебели
@@ -154,6 +155,7 @@ x_excls_common: &x_excls_common
   - ищу человека с кредитнои картои
   - почему у кого-то получается создавать жизнь мечты
   - ищу людеи для заработка на p2p
+  - 5 years of experience
   # cheked
   - \+1\(718\)440-6841 # ny.roma
   - arthur@laptopmd.com # webdevelop wait

@@ -1,141 +1,157 @@
 x_excls_common: &x_excls_common
   # localization
-  - \b[а-яА-Я]*і[а-я]*\b
-  - \bидиш\b
+  - \[а-я]+[iіїєґ]+[а-я]+ # украинский
+  - \[iіїєґ]+[а-я]+ # украинский
+  - \[а-я]+[iіїєґ]+ # украинский
+  - \[一-龯々-〆ツァ-ヶ口廾日丹几丅五乡穴亡卩从仨长厂丩右归人丁石丫广] # япокский и китайские тексты
+  - идиш # не предлагать идиш
   # location
-  - \bstaten island
-  - \blong island
-  - \b(alabama|alaska|arizona|arkansas|california|colorado|connecticut|delaware|florida|georgia|hawaii|idaho|illinois|indiana|iowa|kansas|kentucky|louisiana|maine|maryland|massachusetts|michigan|minnesota|mississippi|missouri|montana|nebraska|nevada|new hampshire|new jersey|new mexico|north carolina|north dakota|ohio|oklahoma|oregon|pennsylvania|rhode island|south carolina|south dakota|tennessee|texas|utah|vermont|virginia|washington|west virginia|wisconsin|wyoming)\b
-  - \b(айдахо|айова|алабама|аляска|аризона|арканзас|вайоминг|вашингтон|вермонт|вирджиния|висконсин|гавайи|делавэр|джорджия|западная вирджиния|иллинойс|индиана|калифорния|канзас|кентукки|колорадо|коннектикут|луизиана|массачусетс|миннесота|миссисипи|миссури|мичиган|монтана|мэн|мэриленд|небраска|невада|нью-гэмпшир|нью-джерси|нью-мексико|огайо|оклахома|орегон|пенсильвания|род-айленд|северная дакота|северная каролина|теннесси|техас|флорида|южная дакота|южная каролина|юта)\b
-  - \bканад\w*\b
-  - \bкипр\b
+  - staten island
+  - long island
+  - (alabama|alaska|arizona|arkansas|california|colorado|connecticut|delaware|florida|georgia|hawaii|idaho|illinois|indiana|iowa|kansas|kentucky|louisiana|maine|maryland|massachusetts|michigan|minnesota|mississippi|missouri|montana|nebraska|nevada|new hampshire|new jersey|new mexico|north carolina|north dakota|ohio|oklahoma|oregon|pennsylvania|rhode island|south carolina|south dakota|tennessee|texas|utah|vermont|virginia|washington|west virginia|wisconsin|wyoming)
+  - (айдахо|айова|алабама|аляска|аризона|арканзас|вайоминг|вашингтон|вермонт|вирджиния|висконсин|гавайи|делавэр|джорджия|западная вирджиния|иллинойс|индиана|калифорния|канзас|кентукки|колорадо|коннектикут|луизиана|массачусетс|миннесота|миссисипи|миссури|мичиган|монтана|мэн|мэриленд|небраска|невада|нью-гэмпшир|нью-джерси|нью-мексико|огайо|оклахома|орегон|пенсильвания|род-айленд|северная дакота|северная каролина|теннесси|техас|флорида|южная дакота|южная каролина|юта)
+  - канад\w*
+  - кипр
   # universal
-  - \bхлебопекар\w*
-  - \b(бани|баня|баню)\b
+  - хлебопекар\w*
+  - (бани|баня|баню)
   - приглашаем кассиршу в нашу кофейню
-  - \b(швей|швея|швеи|портн)\w*\b
-  - \bfront desk
-  - агентства по трудоустройству
-  - \bмужчина пенсионного возраста
-  - \bсапожник
-  - \b(убор\w*|cleaner)
-  - \bчасовщ\w*\b
-  - \b(grubhub|instakart|doordash)\b
-  - \bювелир\w*\и
+  - (шве[ия]|портн)\w*
+  - front desk
+  - агентства по трудоустроиству
+  - мужчина пенсионного возраста
+  - сапожник
+  - (убор\w*|cleaner)
+  - часовщ\w*
+  - (grubhub|instakart|doordash|грабх[ау]б|доо?рдаш)\w*
+  - DD
+  - ювелир\w*
+  - альпинизм\w*
   # driver/auto
-  - \b(водител|driver)\w*\b
-  - \bowner\w*(?:\s+\w+){0,2}\s+operator
-  - \bовнер\w+\b
-  - \bнеобходимо наличие авто
-  - \b(автосервис|автосалон)\w+\b
-  - \bкомпьютер\w*\s+диагност\w*\s+трак\w*
-  - \+1\(718\)249-6810
+  - (водител|driver)\w*
+  - (авто|auto|avto|car)\w*
+  - налич\w*(?:\s+\w+){0,2}\s+авто\w*
+  - (овнер|owner)\w*(\s+|\-)operator\w*
+  - компьютер\w*\s+диагност\w*\s+трак\w*
+  - диспетчер\w*
   # electro/building
-  - \b(мастер|механик|электрик|техник)\w*
-  - \bавто(мастер|механик|электрик|техник)\w*
-  - \belectricians\b
-  - \bHVAC\b
-  - \bэлектрик(?:\s+\w+){0,2}\s(с|со)(?:\s+\w+){0,2}\s(стаж\w*|опыт\w*)
-  - \bплотник\w*\b
-  - \b(бригадир|foreman)\b
-  - \bsuperintendent\b
-  - \bsuper\b
+  - (мастер|механик|электрик|техник)\w*
+  - авто(мастер|механик|электрик|техник)\w*
+  - electricians
+  - HVAC
+  - электрик(?:\s+\w+){0,2}\s(с|со)(?:\s+\w+){0,2}\s(стаж\w*|опыт\w*)
+  - плотник\w*
+  - (бригадир|foreman)
+  - superintendent
+  - super
   - highway maintenance
   # party/restorans/grosseries
-  - \bпев\w?ц\w*\b
-  - \nмуз\w?кант\w*\b
-  - \b(повар|кондитер)\w*\b
-  - \bизготов\w*(?:\s+\w+){0,2}\sблюд\b
-  - \bтр[эа]вел\w*агент\w*\b
+  - пев\w?ц\w*
+  - \nмуз\w?кант\w*
+  - (повар|кондитер)\w*
+  - изготов\w*(?:\s+\w+){0,2}\sблюд
+  - тр[эа]вел\w*агент\w*
   - food service worker
   - 347-733-4409 # русско-украинская кухня
+  - гид по барам
   # office
-  - \b(менеджер|manager)\w*\b
-  - \bsales.{0,10}(man|specialist)
-  - \bcustomer service\b
-  - \b(PR|пиар)\w*\s+менедж\w*\b
-  - \bрекрут\w*\b
-  - \bмаркетолог\w*\b
+  - (менеджер|manager)\w*
+  - sales.{0,10}(man|specialist)
+  - customer service
+  - (PR|пиар)\w*\s+менедж\w*
+  - рекрут\w*
+  - маркетолог\w*
   - accounts payable
   # enducation
-  - \b(school|школа)\b
-  - \b(учител|преподават)\w*\b
-  - \b(барбер|barber|hair stylist|hairstylist)
-  - \b(мужск\w*|женс\w*)\s+мастер
-  - \bbody sculpting\b
-  - \bдетск\w* сад\w*
+  - (school|школа)
+  - (учител|преподават)\w*
+  - (мужск\w*|женс\w*)\s+мастер
+  - body sculpting
+  - детск\w* сад\w*
   - \+1\(917\)753-6577
   # finance/goveremnt
-  - \b(бухгалтер|bookkeeper)\w*\b
-  - \binsurance broker
-  - \bбирж\w*(?:\s+\w+){0,1}\sтрейд\w*
-  - \b(brokerage|брокер)\w*\b
-  - \bтребуется(?:\s+\w+){0,3}\sадвокат\b
+  - (бухгалтер|bookkeeper)\w*
+  - insurance broker
+  - трейд\w*
+  - (broker|брокер)\w*
   - notary public licens
   - civil service
   # style
-  - \b(массажист|тренер|маникюр|парикмах|ресниц|бровист|ногтям|колорист|косметолог)\w*\b
+  - (массаж|тренер|маникюр|парикмах|ресниц|бровист|ногтям|колорист|косметолог|барбер|barber|hair)\w*
   # medicine
-  - \b(аптек|медицин|врач|dental|стоматолог)\w*\b
-  - medical offic
-  - кардиолог
+  - (апте|медицин|medic|врач|dental|дэнтал|стоматолог|кардиолог)\w*
   # clean
   - помощни\w*\s.*по уборке
   # care
-  - \b(nursing|сиделк|home attend)\w*\b
-  - \b(ННА|HHA|Home Care|няня|няню|нянь|няни|бебисит\w*)\b
-  - \bпрестарел\w+\b
+  - (nursing|сиделк|home attend)\w*
+  - (ННА|HHA|Home Care|няня|няню|нянь|няни|бебисит\w*)
+  - престарел\w+
   # body
-  - \bвев queen
-  - \bтанцовщицы
-  - \b\s(gogo|go-go)\b
-  - \b(ищ\w*|приглаш\w*|треб\w*)(?:\s+\w+){0,1}\sдевуш\w*
-  - \bдевушка
-  - \bмолодые(?:\s+\w+){0,1}\sдевуш\w*
-  - \bищу(?:\s+\w+){0,1}\sдевуш\w*
-  - \bонлайн(?:\s+\w+){0,1}\sдевуш\w*
-  - \bдевуш\w*(?:\s+\w+){0,1}\sвнешности
+  - вев queen
+  - \s(gogo|go\-go)
+  - (девуш|girl|танцовщ|тaнцoвщ|интим)\w*
+  - раскрепощенные сотрудницы
   - компаньонка
-  - \bраскрепощенные сотрудницы
   # spam
-  - \bсверхприбыльно
-  - \bтренинг
-  - \bхочу помочь новоприезжим
-  - \bкурс\w*(?:\s+\w+){0,3}\s(програм|тестир)
-  - facebook групп
-  - иммиграционный адвокат daniel m pell
-  - low profile car hauler
-  - зарегистрируйтесь на курс
-  - нетрудоемкий быстрый заработок
-  - прод\w*(?:\s+\w+){0,4}\s+бизнес\w*
-  - \bобмен\w*(?:\s+\w+){0,4}\s+(валют\w*|usdt|usd|zelle|rub)\b
-  - \bподписывайся\b
-  - вступай в чат
-  - \bищу(?:\s+\w+){0,2}\s+работу\b
-  - иммиграционный адвокат gendelberg law
-  - \bbazar\.club[^/]
-  - шанс изменить жизнь в лучшую сторону
+  - сверхприбыльно
+  - хочу помочь новоприезжим
+  - быстр\w*(?:\s+\w+){0,2}\s+заработ\w
+  - изменить жизнь
+  - bazar\.club[^/]
+  - доставк\w*
+  - цен(ы|ам)\w*
+  # spam.remote
+  - (заработ|доход|работ)\w*\s+(из|на)\s+дом[ау]\w*
+  - (удален|дополнит)\w*(?:\s+\w+){0,2}\s+(заработ|доход|работ)\w*
+  # spam.looking
+  - ищу(?:\s+\w+){0,2}\s+работ\w*
+  - need.*job
+  # spam.teaching
+  - (сертифи|курс|тренинг|консульт)\w*
+  - OSHA
+  # spam.lauer
+  - им+играци\w*
+  - адвокат\w*
+  - (убеж.?щ|uscis|i\-589|i\-765|i\-94)\w*
+  - заполн\w*(?:\s+\w+){0,2}\s+документ\w*
+  - страхов\w*
+  # spam.bay-sell-rent
+  - (прод|обмен|сдается|аренд|купить)\w*
+  - room
+  # spam.social
+  - facebook
+  - (подписываи|вступ)\w*
+  - рассылк\w*
+  # spam.finance
+  - \w*(крипто|кpиптo|crypt|binance)\w*
+  - (валют|инвести|актив)\w*
   # tmp-1to1match
-  - стекольная компания приглашает на работу
-  - опытные рабочие следующих профессий
-  - бетонщиков, у которых имеется опыт
-  - официантки до 40 лет, с опытом работы и певица
-  - руководитель отдела продаж
-  - по работе с соцсетями
-  - специалистов по альпинизму
-  - наличие автомобиля
-  - требуется продавщица
-  - бесплатные курсы по подготовке работников
-  - laboratory animal caretaker
-  - подготовлю к получению лицензии
-  - girl needed
-  - 917-498-7307 # ищу реставратора антикварной деревянной мебели
-  - потенциальные получатели федеральных грантов
-  - cash@vacancybest.co # высокий доход в свободное время
-  - \bgeorgian\b
-  - приглашаем на постоянную работу девушку-официантку
-  - дополнительный доход для домохозяек
   - 347-265-6186 # сборщик данных
+  - 917-498-7307 # ищу реставратора антикварной деревянной мебели
+  - \+16298952675 # anon
+  - \+1\(718\)249-6810
+  - georgian
+  - assalomu alaykum
+  - cash@vacancybest.co # высокий доход в свободное время
+  - estoy buscando asistentes virtuales para trabajar
+  - facebook
+  - laboratory animal caretaker
+  - low profile car hauler
+  - offer my services
+  - В наличии много табачной продукции, кому интересно в лс.
+  - Помогу сделать Bill. По вопросу в личку.
+  - абсолютно легально
+  - бетонщиков, у которых имеется опыт
+  - здравствуйте, художник с образованием
+  - личная встреча в любом банке проверка купюр
+  - опытные рабочие следующих профессий
+  - официантки до 40 лет, с опытом работы и певица
+  - по работе с соцсетями
+  - подготовлю к получению лицензии
+  - потенциальные получатели федеральных грантов
+  - руководитель отдела продаж
+  - стекольная компания приглашает на работу
+  - требуется продавщица
   # cheked
   - \+1\(718\)440-6841 # ny.roma
   - arthur@laptopmd.com # webdevelop wait
@@ -143,11 +159,12 @@ x_excls_common: &x_excls_common
   - 917-442-4778 # test-device wait
   - lana@glasscompanyny.com # assist wait
   - https://forms.kommo.com/rrccxlt # photo wait
+  - \(347\)985-5964 # web-dis(lol)
 x_excls-multi_common: &x_excls-multi_common
-  - \bтребования.*(личный транспорт|автомобиль)
+  - требования.*(личный транспорт|автомобиль)
 rusrek_com:
   incls:
-    - __Работа - требуются
+    - Работа - требуются
   excls:
     - *x_excls_common
   excls-multi:
@@ -165,7 +182,7 @@ jobs_in_new_york:
     - *x_excls_common
   excls-multi:
     - *x_excls-multi_common
-nyjobs:
+nyjobsusa:
   incls: []
   excls:
     - *x_excls_common

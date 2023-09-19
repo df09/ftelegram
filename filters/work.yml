@@ -13,17 +13,11 @@ x_excls_common: &x_excls_common
   # universal
   - хлебопекар
   - (бани|баня|баню)
-  - приглашаем кассиршу в нашу кофейню
   - (шве[ия]|портн)
   - front desk
-  - агентства по трудоустроиству
-  - мужчина пенсионного возраста
   - сапожник
-  - (убор\w*|cleaner)
   - часовщ
   - (grubhub|instakart|doordash|грабх[ау]б|доо?рдаш)
-  - DD
-  - ювелир
   - альпинизм
   # driver/auto
   - (водител|driver)
@@ -41,11 +35,11 @@ x_excls_common: &x_excls_common
   - плотник
   - (бригадир|foreman)
   - superintendent
-  - super
+  - \bsuper\b
   - highway maintenance
   # party/restorans/grosseries
   - пев\w?ц
-  - \nмуз\w?кант
+  - \bмуз\w?кант\b
   - (повар|кондитер)
   - изготов\w*(?:\s+\w+){0,2}\sблюд
   - тр[эа]вел\w*агент
@@ -56,10 +50,11 @@ x_excls_common: &x_excls_common
   - (менеджер|manager)
   - sales\s+(man|specialist|person)
   - customer service
-  - (PR|пиар)\w*\s+менедж
   - рекрут
-  - маркетолог
   - accounts payable
+  # office.seo
+  - (PR|пиар)\w*\s+менедж
+  - (маркетолог|таргетиров|таргетолог)\w*
   # enducation
   - (school|школа)
   - (учител|преподават|репетитор)
@@ -70,20 +65,22 @@ x_excls_common: &x_excls_common
   # finance/goveremnt
   - (бухгалтер|bookkeeper)
   - insurance broker
-  - трейд
-  - (broker|брокер)
+  - \b(broker|брокер)\w*\b
   - notary public licens
   - civil service
   # style
-  - (массаж|тренер|маникюр|парикмах|ресниц|бровист|ногтям|колорист|косметолог|барбер|barber|hair)
+  - (make.?up|массаж|тренер|маникюр|парикмах|ресниц|бровист|ногтям|колорист|косметолог|барбер|barber|hair)
   # medicine
   - (апте|медицин|medic|врач|dental|дэнтал|стоматолог|кардиолог)
   # clean
-  - помощни\w*\s.*по уборке
+  - (уборщ\w*|cleaner)
   # care
   - (nursing|сиделк|home attend)
   - (ННА|HHA|Home Care|няня|няню|нянь|няни|бебисит\w*)
   - престарел\w+
+  # remote
+  - \w*(доход|работ|job)\w*(\s+\w+|\s*[^\w]+){0,2}(удален|дополнит|онлайн|online|дом[ау])
+  - (удален|дополнит|онлайн|online|дом[ау])\w*(\s+\w+|\s*[^\w]+){0,2}\w*(доход|работ|job)
   # body
   - вев queen
   - \s(gogo|go\-go)
@@ -92,78 +89,75 @@ x_excls_common: &x_excls_common
   - компаньонка
   # spam
   - сверхприбыльно
-  - хочу помочь новоприезжим
-  - быстр\w*(?:\s+\w+){0,2}\s+заработ\w
+  - абсолютно легально
+  - хочу помочь
   - изменить жизнь
+  - жизнь мечты
   - bazar\.club[^/]
-  - доставк
-  - цен(ы|ам)
-  # spam.remote
-  - \w*(доход|работ|job)\w*(\s+\w+|\s*[^\w]+){0,2}(удален|дополнит|онлайн|online|дом[ау])
-  - (удален|дополнит|онлайн|online|дом[ау])\w*(\s+\w+|\s*[^\w]+){0,2}\w*(доход|работ|job)
-  # spam.looking
-  - ищу(?:\s+\w+){0,2}\s+работ
-  - need.*job
+  - быстр\w*(?:\s+\w+){0,2}\s+заработ\w
+  - розыгр\w*
   # spam.teaching
   - (сертифи|курс|тренинг|консульт)
   - OSHA
-  # spam.lauer
+  # spam.social
+  - (подписываи|вступ)
+  - рассылк
+  # spam.lawyer
   - им+играци
   - адвокат
   - (убеж.?щ|uscis|i\-589|i\-765|i\-94)
   - заполн\w*(?:\s+\w+){0,2}\s+документ
   - страхов
-  # spam.bay-sell-rent
-  - (прод|обмен|сдает|аренд|купить)
-  - (room|комнат|квартир)
-  # spam.social
-  - facebook
-  - (подписываи|вступ)
-  - рассылк
   # spam.finance
   - \w*(крипто|кpиптo|crypt|binance)
   - (валют|инвести|актив)
   - \b(usdt|rub|bitcoin)\b
-  # tmp-1to1match
-  - 347-265-6186 # сборщик данных
-  - 917-498-7307 # ищу реставратора антикварной деревянной мебели
-  - \+16298952675 # anon
-  - \+1\(718\)249-6810
-  - georgian
+  # mixup.looking
+  - ищу(?:\s+\w+){0,2}\s+работ
+  - need.*job
+  # mixup.bay-sell-rent
+  - (прод|обмен|сда[ет|ю]|аренд|куп[ить|лю])\w*
+  # mixup.living-apartments
+  - (room|комнат|квартир|bedroom|\dbdr)\w*
+  - сниму
+  # 1-1_matches
   - assalomu alaykum
-  - cash@vacancybest.co # высокий доход в свободное время
   - estoy buscando asistentes virtuales para trabajar
-  - facebook
+  - 347-265-6186 # сборщик данных
+  - 917-498-7307 # реставратор антикварной деревянной мебели
+  - cash@vacancybest.co # высокий доход в свободное время
   - laboratory animal caretaker
   - low profile car hauler
   - offer my services
   - В наличии много табачной продукции, кому интересно в лс.
-  - Помогу сделать Bill. По вопросу в личку.
-  - абсолютно легально
+  - Помогу сделать Bill
   - бетонщиков, у которых имеется опыт
   - здравствуйте, художник с образованием
   - личная встреча в любом банке проверка купюр
   - опытные рабочие следующих профессий
-  - официантки до 40 лет, с опытом работы и певица
-  - по работе с соцсетями
+  - приглашаем кассиршу в нашу кофейню
   - подготовлю к получению лицензии
   - потенциальные получатели федеральных грантов
   - руководитель отдела продаж
-  - стекольная компания приглашает на работу
-  - требуется продавщица
   - есть способ хорошо заработать
   - ищу человека с кредитнои картои
-  - почему у кого-то получается создавать жизнь мечты
   - ищу людеи для заработка на p2p
   - 5 years of experience
   # cheked
-  - \+1\(718\)440-6841 # ny.roma
+  - \+1\(718\)440-?6841 # ny.roma
   - arthur@laptopmd.com # webdevelop wait
-  - 310-528-9321 # exec-assist wait
-  - 917-442-4778 # test-device wait
+  - 310-?528-?9321 # exec-assist wait
+  - 917-?442-?4778 # test-device wait
   - lana@glasscompanyny.com # assist wait
   - https://forms.kommo.com/rrccxlt # photo wait
-  - \(347\)985-5964 # web-dis(lol)
+  - 997.?8737                       # photo wait
+  - \(?347\)?985-?5964 # web-dis(lol)
+  - vadim@nyrender.nyc # arch wait
+  - andrealowell074@gmail.com # xyd-met
+  - \+1\(?718\)?568-?9739     # xyd-met
+  - \+1\(?800\)?560-?0214 # office-empl
+  - mikhail@russianconsulting.com # office-empl
+  - 212.?268.?9336                # office-empl
 x_excls-multi_common: &x_excls-multi_common
   - требования.*(личный транспорт|автомобиль)
 rusrek_com:

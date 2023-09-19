@@ -1,5 +1,5 @@
 venv
 isushkov_robot.session
-work/*-offsets.yml
+filters/*-offsets.yml
 report.*
 log.txt

@@ -90,12 +90,14 @@ x_excls_common: &x_excls_common
   # spam
   - сверхприбыльно
   - абсолютно легально
+  - количество мест ограничено
   - хочу помочь
   - изменить жизнь
   - жизнь мечты
   - bazar\.club[^/]
   - быстр\w*(?:\s+\w+){0,2}\s+заработ\w
   - розыгр\w*
+  - professional tool for managing Telegram groups
   # spam.teaching
   - (сертифи|курс|тренинг|консульт)
   - OSHA

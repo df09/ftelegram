@@ -119,6 +119,7 @@ x_excls_common: &x_excls_common
   - need.*job
   # mixup.bay-sell-rent
   - (прод|обмен|сда[ет|ю]|аренд|куп[ить|лю])\w*
+  - \bfor sale\b
   # mixup.living-apartments
   - (room|комнат|квартир|bedroom|\dbdr)\w*
   - сниму

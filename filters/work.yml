@@ -89,16 +89,16 @@ x_excls_common: &x_excls_common
   - хочу помочь
   - изменить жизнь
   - жизнь мечты
-  - bazar\.club[^/]
   - быстр\w*(?:\s+\w+){0,2}\s+заработ\w
   - розыгр\w*
   - professional tool for managing Telegram groups
   # spam.teaching
   - (сертифи|курс|тренинг|консульт)
-  - OSHA
   # spam.social
   - (подписываи|вступ)
   - рассылк
+  - bazar\.club[^/]
+  - больше вакансии.*facebook.*
   # spam.lawyer
   - им+играци
   - (убеж.?щ|uscis|i\-589|i\-765|i\-94)
@@ -135,6 +135,7 @@ x_excls_common: &x_excls_common
   - ищу человека с кредитнои картои
   - ищу людеи для заработка на p2p
   - 5 years of experience
+  - в приемныи пункт химчистки
   # cheked
   - \+1\(718\)440-?6841 # ny.roma
   - arthur@laptopmd.com # webdevelop wait
@@ -150,7 +151,8 @@ x_excls_common: &x_excls_common
   - \+1\(?800\)?560-?0214 # office-empl
   - mikhail@russianconsulting.com # office-empl
   - 212.?268.?9336                # office-empl
-  - 929.?899.?6527 # кадровое агренство - skip
+  - ariasteart@gmail.com # кадровое агренство - skip
+  - 929.?899.?6527       # кадровое агренство - skip
 x_excls-multi_common: &x_excls-multi_common
   - требования.*(личный транспорт|автомобиль)
 rusrek_com:

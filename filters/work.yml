@@ -150,6 +150,7 @@ x_excls_common: &x_excls_common
   - \+1\(?800\)?560-?0214 # office-empl
   - mikhail@russianconsulting.com # office-empl
   - 212.?268.?9336                # office-empl
+  - 929.?899.?6527 # кадровое агренство - skip
 x_excls-multi_common: &x_excls-multi_common
   - требования.*(личный транспорт|автомобиль)
 rusrek_com:

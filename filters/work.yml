@@ -155,6 +155,7 @@ x_excls_common: &x_excls_common
   - 212.?268.?9336                # office-empl
   - ariasteart@gmail.com # кадровое агренство - skip
   - 929.?899.?6527       # кадровое агренство - skip
+  - 646.?236.?3939 # типография
 x_excls-multi_common: &x_excls-multi_common
   - требования.*(личный транспорт|автомобиль)
 rusrek_com:

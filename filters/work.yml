@@ -76,6 +76,8 @@ x_excls_common: &x_excls_common
   # remote
   - \w*(доход|работ|ворк|work|джоб|job)\w*(\s+\w+|\s*[^\w]+){0,2}(удален|дополнит|онлайн|online|дом[ау])
   - (удален|дополнит|онлайн|online|дом[ау])\w*(\s+\w+|\s*[^\w]+){0,2}\w*(доход|работ|ворк|work|джоб|job)
+  # delivery
+  - \b(uber.?eat|убер[ ]?и\w?т|doordash|дордаш)\b
   # body
   - вев queen
   - \s(gogo|go\-go)
@@ -105,7 +107,7 @@ x_excls_common: &x_excls_common
   - заполн\w*(?:\s+\w+){0,2}\s+документ
   # spam.finance
   - \w*(крипто|кpиптo|crypt|binance)
-  - (валют|инвести|актив)
+  - (валют|инвести|актив|бирж)
   - \b(usdt|rub|bitcoin)\b
   # mixup.looking
   - ищу(?:\s+\w+){0,2}\s+работ

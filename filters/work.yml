@@ -12,9 +12,10 @@ x_excls_common: &x_excls_common
   - канад
   - кипр
   # driver/auto
-  - водитель|CDL|driver
-  - повар
-  - маникюр
+  - (водитель|CDL|driver|ovner operator)
+  - (повар|кандитер)
+  - (маникюр|парикмахер)
+  - (эскорт|интим)
   # universal
   # party/restorans/grosseries
   # office

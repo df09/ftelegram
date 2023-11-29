@@ -1,0 +1,189 @@
+x_excls_common: &x_excls_common
+  # localization
+  - '[а-я]+[iіїєґ]+[а-я]+|[iіїєґ]+[а-я]+|[а-я]+[iіїєґ]+' # украинский
+  - '[一-龯々-〆ツァ-ヶ口廾日丹几丅五乡穴亡卩从仨长厂丩右归人丁石丫广]' # япокский и китайские тексты
+  - идиш # не предлагать идиш
+  - ас.+л\w*\s*алеик
+  # location
+  - staten island
+  - long island
+  - (alabama|alaska|arizona|arkansas|california|colorado|connecticut|delaware|florida|georgia|hawaii|idaho|illinois|indiana|iowa|kansas|kentucky|louisiana|maine|maryland|massachusetts|michigan|minnesota|mississippi|missouri|montana|nebraska|nevada|new hampshire|new jersey|new mexico|north carolina|north dakota|ohio|oklahoma|oregon|pennsylvania|rhode island|south carolina|south dakota|tennessee|texas|utah|vermont|virginia|washington|west virginia|wisconsin|wyoming)
+  - (айдахо|айова|алабама|аляска|аризона|арканзас|вайоминг|вашингтон|вермонт|вирджиния|висконсин|гавайи|делавэр|джорджия|западная вирджиния|иллинойс|индиана|калифорния|канзас|кентукки|колорадо|коннектикут|луизиана|массачусетс|миннесота|миссисипи|миссури|мичиган|монтана|мэн|мэриленд|небраска|невада|нью-гэмпшир|нью-джерси|нью-мексико|огайо|оклахома|орегон|пенсильвания|род-айленд|северная дакота|северная каролина|теннесси|техас|флорида|южная дакота|южная каролина|юта)
+  - канад
+  - кипр
+  # universal
+  - хлебопекар
+  - (бани|баня|баню)
+  - (шве[ия]|портн)
+  - front desk
+  - сапожник
+  - часовщ
+  - (grubhub|instakart|doordash|грабх[ау]б|доо?рдаш)
+  - альпинизм
+  # driver/auto
+  - (водител|driver)
+  - (авто|auto|avto|car)
+  - налич\w*(?:\s+\w+){0,2}\s+авто
+  - (овнер|owner)\w*(\s+|\-)operator
+  - компьютер\w*\s+диагност\w*\s+трак
+  - диспетчер
+  # electro/building
+  - авто(мастер|механик|электрик|техник)
+  - electricians
+  - HVAC
+  - плотник
+  - (бригадир|foreman)
+  - superintendent
+  - \bsuper\b
+  # party/restorans/grosseries
+  - пев\w?ц
+  - \bмуз\w?кант\b
+  - (повар|кондитер)
+  - изготов\w*(?:\s+\w+){0,2}\sблюд
+  - тр[эа]вел\w*агент
+  - 347-733-4409 # русско-украинская кухня
+  - гид по барам
+  # office
+  - (менеджер|manager)
+  - sales\s+(man|specialist|person)
+  - customer service
+  - рекрут
+  - accounts payable
+  # office.seo
+  - (PR|пиар)\w*\s+менедж
+  - (маркетолог|таргетиров|таргетолог)\w*
+  # enducation
+  - (school|школа)
+  - (учител|преподават|репетитор)
+  - детск\w* сад
+  # finance/goveremnt
+  - (бухгалтер|bookkeeper)
+  - insurance broker
+  - \b(broker|брокер)\w*\b
+  - notary public licens
+  - civil service
+  # style
+  - (make.?up|массаж|тренер|маникюр|парикмах|ресниц|бровист|ногтям|колорист|косметолог|барбер|barber|hair)
+  - (мужск\w*|женс\w*)\s+мастер
+  - body sculpting
+  # medicine
+  - (апте|медицин|medic|врач|dental|дэнтал|стоматолог|кардиолог)
+  # clean
+  - (уборщ\w*|cleaner)
+  # care
+  - (nursing|сиделк|home attend)
+  - (ННА|HHA|Home Care|няня|няню|нянь|няни|бебисит\w*)
+  - престарел\w+
+  # remote
+  - \w*(доход|работ|ворк|work|джоб|job)\w*(\s+\w+|\s*[^\w]+){0,2}(удален|дополнит|онлайн|online|дом[ау])
+  - (удален|дополнит|онлайн|online|дом[ау])\w*(\s+\w+|\s*[^\w]+){0,2}\w*(доход|работ|ворк|work|джоб|job)
+  # delivery
+  - \b(uber.?eat\w?|убер[ ]?и\w?т|doordash|дордаш)\b
+  # body
+  - вев queen
+  - \s(gogo|go\-go)
+  - (танцовщ|тaнцoвщ|интим)
+  - раскрепощенные сотрудницы
+  - компаньонка
+  # spam
+  - сверхприбыльно
+  - легально
+  - (хорошо|предло)\w*\s+заработать
+  - ищу человека с кредит\w* карт\w*
+  - количество мест ограничено
+  - хочу помочь
+  - изменить жизнь
+  - жизнь мечты
+  - быстр\w*(?:\s+\w+){0,2}\s+заработ\w
+  - розыгр\w*
+  - professional tool for managing Telegram groups
+  # spam.teaching
+  - (сертифи|курс|тренинг|консульт)
+  # spam.social
+  - (подписываи|вступ)
+  - рассылк
+  - bazar\.club[^/]
+  - больше вакансии.*facebook.*
+  # spam.lawyer
+  - им+играци
+  - (убеж.?щ|uscis|i\-589|i\-765|i\-94)
+  - заполн\w*(?:\s+\w+){0,2}\s+документ
+  # spam.finance
+  - \w*(крипто|кpиптo|crypt|binance)
+  - (валют|инвести|актив|бирж)
+  - \b(usdt|rub|bitcoin)\b
+  # mixup.looking
+  - ищу(?:\s+\w+){0,2}\s+работ
+  - need.*job
+  # mixup.bay-sell-rent
+  - (прод|обмен|сда[ет|ю]|аренд|куп[ить|лю])\w*
+  - \bfor sale\b
+  # mixup.living-apartments
+  - (room|комнат|квартир|bedroom|\dbdr)\w*
+  - сниму
+  # 1-1_matches
+  - assalomu alaykum
+  - estoy buscando asistentes virtuales para trabajar
+  - 347-265-6186 # сборщик данных
+  - 917-498-7307 # реставратор антикварной деревянной мебели
+  - cash@vacancybest.co # высокий доход в свободное время
+  - laboratory animal caretaker
+  - low profile car hauler
+  - offer my services
+  - В наличии много табачной продукции, кому интересно в лс.
+  - Помогу сделать Bill
+  - здравствуйте, художник с образованием
+  - личная встреча в любом банке проверка купюр
+  - подготовлю к получению лицензии
+  - потенциальные получатели федеральных грантов
+  - ищу людеи для заработка на p2p
+  - 5 years of experience
+  - в приемныи пункт химчистки
+  - green ductors is a service company
+  - services for dispatch
+  # cheked
+  - \+1\(718\)440-?6841 # ny.roma
+  - arthur@laptopmd.com # webdevelop wait
+  - 310-?528-?9321 # exec-assist wait
+  - 917-?442-?4778 # test-device wait
+  - lana@glasscompanyny.com # assist wait
+  - https://forms.kommo.com/rrccxlt # photo wait
+  - 997.?8737                       # photo wait
+  - \(?347\)?985-?5964 # web-dis(lol)
+  - vadim@nyrender.nyc # arch wait
+  - andrealowell074@gmail.com # xyd-met
+  - \+1\(?718\)?568-?9739     # xyd-met
+  - \+1\(?800\)?560-?0214 # office-empl
+  - mikhail@russianconsulting.com # office-empl
+  - 212.?268.?9336                # office-empl
+  - ariasteart@gmail.com # кадровое агренство - skip
+  - 929.?899.?6527       # кадровое агренство - skip
+  - 646.?236.?3939 # типография
+x_excls-multi_common: &x_excls-multi_common
+  - требования.*(личный транспорт|автомобиль)
+rusrek_com:
+  incls:
+    - Работа - требуются
+  excls:
+    - *x_excls_common
+  excls-multi:
+    - *x_excls-multi_common
+JobsInNewYork:
+  incls: []
+  excls:
+    - *x_excls_common
+    - license plumber
+  excls-multi:
+    - *x_excls-multi_common
+jobs_in_new_york:
+  incls: []
+  excls:
+    - *x_excls_common
+  excls-multi:
+    - *x_excls-multi_common
+nyjobsusa:
+  incls: []
+  excls:
+    - *x_excls_common
+  excls-multi:
+    - *x_excls-multi_common

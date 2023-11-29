@@ -13,6 +13,8 @@ x_excls_common: &x_excls_common
   - кипр
   # driver/auto
   - водитель|CDL|driver
+  - повар
+  - маникюр
   # universal
   # party/restorans/grosseries
   # office

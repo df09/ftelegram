@@ -13,9 +13,11 @@ x_excls_common: &x_excls_common
   - кипр
   # driver/auto
   - (водитель|CDL|driver|ovner operator)
+  - (DoorDash|Uber|Eats|Taxi|GrubHub)
   - (повар|кандитер)
   - (маникюр|парикмахер)
   - (эскорт|интим)
+  - (иммиграц|I-589|I-765|I-912)
   # universal
   # party/restorans/grosseries
   # office

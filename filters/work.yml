@@ -19,31 +19,13 @@ x_excls_common: &x_excls_common
   - (маникюр|парикмахер)
   - (эскорт|интим)
   - (иммиграц|I-589|I-765|I-912)
-
-  # universal
-  # party/restorans/grosseries
-  # office
-  # office.seo
-  # enducation
-  # finance/goveremnt
-  # style
-  # medicine
-  # clean
-  # care
-  # remote
-  # delivery
-  # body
-  # spam
-  # spam.teaching
-  # spam.social
-  # spam.lawyer
-  # spam.finance
-  # mix
   # cheked
   - \+1\(718\)440-?6841       # ny.roma
   - \(?347\)?985-?5964        # web-dis(lol)
   - andrealowell074@gmail.com # xyd-met
   - \+1\(?718\)?568-?9739     # xyd-met
+  - \+1\(718\)879\-0694       # scam (barmen/artist/Driver)
+
 x_excls-multi_common: &x_excls-multi_common
   - личный транспорт
 rusrek_com:

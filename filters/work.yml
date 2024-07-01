@@ -43,6 +43,7 @@ x_excls_common: &x_excls_common
   - hvac
   - столяр
   - стекольщик
+  - крановщик
   - в цех
   - \bоператор\b.*\bстанка\b
   # super

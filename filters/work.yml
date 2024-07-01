@@ -1,5 +1,7 @@
 x_excls_common: &x_excls_common
   # cheked
+  - \+1\(?929\)?909-?7575 # bartender
+  - seven17teen.d@gmail.com # it-gay
   - \+1\(?347\)?696-?0201 # agent.leon
   - \+1\(?718\)?440-?6841 # ny.roma
   - arthur@laptopmd.com # webdevelop wait

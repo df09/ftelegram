@@ -1,6 +1,7 @@
 x_excls_common: &x_excls_common
   # cheked
-  - \+1\(718\)440-?6841 # ny.roma
+  - \+1\(?347\)?696-?0201 # agent.leon
+  - \+1\(?718\)?440-?6841 # ny.roma
   - arthur@laptopmd.com # webdevelop wait
   - 310-?528-?9321 # exec-assist wait
   - 917-?442-?4778 # test-device wait
@@ -16,15 +17,13 @@ x_excls_common: &x_excls_common
   - 212.?268.?9336                # office-empl
   - 646.?236.?3939 # типография
   - 347-733-4409 # русско-украинская кухня
+
   # localization
-  - '[а-я]+[iіїєґ]+[а-я]+|[iіїєґ]+[а-я]+|[а-я]+[iіїєґ]+' # украинский
-  - '[龯々〆ツァヶ口廾日丹几丅五乡穴亡卩从仨长厂丩右归人丁石丫广]' # япокский и китайские тексты
-  - идиш # не предлагать идиш
+  - '[а-я]+[iіїєґ]+[а-я]+|[iіїєґ]+[а-я]+|[а-я]+[iіїєґ]+' # украинскии
+  - '[龯々〆ツァヶ口廾日丹几丅五乡穴亡卩从仨长厂丩右归人丁石丫广]' # япокскии и китаиские тексты
+  - (идиш|кошерн) # не предлагать идиш
   # location
-  - staten island
-  - long island
-  - (alabama|alaska|arizona|arkansas|california|colorado|connecticut|delaware|florida|georgia|hawaii|idaho|illinois|indiana|iowa|kansas|kentucky|louisiana|maine|maryland|massachusetts|michigan|minnesota|mississippi|missouri|montana|nebraska|nevada|new hampshire|new jersey|new mexico|north carolina|north dakota|ohio|oklahoma|oregon|pennsylvania|rhode island|south carolina|south dakota|tennessee|texas|utah|vermont|virginia|washington|west virginia|wisconsin|wyoming)
-  - (айдахо|айова|алабама|аляска|аризона|арканзас|вайоминг|вашингтон|вермонт|вирджиния|висконсин|гавайи|делавэр|джорджия|западная вирджиния|иллинойс|индиана|калифорния|канзас|кентукки|колорадо|коннектикут|луизиана|массачусетс|миннесота|миссисипи|миссури|мичиган|монтана|мэн|мэриленд|небраска|невада|нью-гэмпшир|нью-джерси|нью-мексико|огайо|оклахома|орегон|пенсильвания|род-айленд|северная дакота|северная каролина|теннесси|техас|флорида|южная дакота|южная каролина|юта)
+  - (alabama|алабама|alaska|аляска|arizona|аризона|arkansas|арканзас|california|калифорния|colorado|колорадо|connecticut|коннектикут|delaware|делавэр|florida|флорида|georgia|джорджия|hawaii|гаваии|idaho|аидахо|illinois|иллиноис|indiana|индиана|iowa|аиова|kansas|канзас|kentucky|кентукки|louisiana|луизиана|maine|мэн|maryland|мэриленд|massachusetts|массачусетс|michigan|мичиган|minnesota|миннесота|mississippi|миссисипи|missouri|миссури|montana|монтана|nebraska|небраска|nevada|невада|new|mpshire-нью-гэмпшир|new|xico-нью-мексико|north|rolina-севернаякаролина|north|kota-севернаядакота|ohio|огаио|oklahoma|оклахома|oregon|орегон|pennsylvania|пенсильвания|rhode|land-род-аиленд|south|rolina-южнаякаролина|south|kota-южнаядакота|tennessee|теннесси|texas|техас|utah|юта|vermont|вермонт|virginia|виргиния|washington|вашингтон|west|rginia-западнаявиргиния|wisconsin|висконсин|wyoming|ваиоминг)
   # properties
   - удаленка
 
@@ -35,13 +34,17 @@ x_excls_common: &x_excls_common
   - (овнер|owner)\w*(\s+|\-)operator
   - диспетчер
   # construction
-  - (механик|электрик|техник)
-  - electricians
-  - HVAC
-  - плотник
   - (бригадир|foreman)
-  # clean
-  - (уборщ\w*|cleaner)
+  - \b(строитель|строители)\b
+  - (electricians|электрик)
+  - (plumber|welder|плотник)
+  - (mechanics|механик)
+  - (маляр|штукатур)
+  - hvac
+  - столяр
+  - стекольщик
+  - в цех
+  - \bоператор\b.*\bстанка\b
   # super
   - superintendent
   - \bsuper\b
@@ -55,10 +58,13 @@ x_excls_common: &x_excls_common
   - музыкант
   - тр[эа]вел\w*агент
   - гид по барам
+  - фотограф
   # cooks
   - повар
   - кондитер
   - пекар
+  - сушист
+  - салатов
   - изготов\w*(?:\s+\w+){0,2}\sблюд
 
   # office
@@ -67,6 +73,7 @@ x_excls_common: &x_excls_common
   - (маркетолог|таргетиров|таргетолог)\w*
   - (бухгалтер|bookkeeper)
   - \b(broker|брокер)\w*\b
+  - (paralegal|адвокат)
   # enducation
   - (school|школа)
   - (учител|преподават|репетитор)
@@ -77,39 +84,22 @@ x_excls_common: &x_excls_common
   - (мужск\w*|женс\w*)\s+мастер
   - body sculpting
   # medicine
-  - (апте|медицин|medic|врач|dental|дэнтал|стоматолог|кардиолог)
+  - (апте|медицин|medic|врач|стоматолог|кардиолог)
+  - (dental|дентал)
   # care
   - (nursing|сиделк|home attend)
   - (ННА|HHA|Home Care|няня|няню|нянь|няни|бебисит\w*)
   - престарел\w+
 
-  # other
+  # artissants/other
+  - (швеи|швея|портниха|портной)
   - (бани|баня|баню)
   - сапожник
   - часовщ
   - альпинизм
 
-  # scam
-  - \w*(доход|работ|ворк|work|джоб|job)\w*(\s+\w+|\s*[^\w]+){0,2}(удален|дополнит|онлайн|online|дом[ау])
-  - (удален|дополнит|онлайн|online|дом[ау])\w*(\s+\w+|\s*[^\w]+){0,2}\w*(доход|работ|ворк|work|джоб|job)
-  - сверхприбыльно
-  - легально
-  - (хорошо|предло)\w*\s+заработать
-  - ищу человека с кредит\w* карт\w*
-  - количество мест ограничено
-  - хочу помочь
-  - изменить жизнь
-  - жизнь мечты
-  - быстр\w*(?:\s+\w+){0,2}\s+заработ\w
-  - розыгр\w*
-  # prostitution
-  - вев queen
-  - \s(gogo|go\-go)
-  - (танцовщ|тaнцoвщ|интим)
-  - раскрепощенные сотрудницы
-  - компаньонка
-
   # spam
+  - news_about_USA
   - (сертифи|курс|тренинг|консульт)
   - (подписываи|вступ)
   - рассылк
@@ -127,31 +117,40 @@ x_excls_common: &x_excls_common
   - \bfor sale\b
   - (room|комнат|квартир|bedroom|\dbdr)\w*
   - сниму
+  # scam
+  - \w*(доход|работ|ворк|work|джоб|job)\w*(\s+\w+|\s*[^\w]+){0,2}(удален|дополнит|онлаин|online|дом[ау])
+  - (удален|дополнит|онлаин|online|дом[ау])\w*(\s+\w+|\s*[^\w]+){0,2}\w*(доход|работ|ворк|work|джоб|job)
+  - сверхприбыльно
+  - легально
+  - (хорошо|предло)\w*\s+заработать
+  - ищу человека с кредит\w* карт\w*
+  - количество мест ограничено
+  - хочу помочь
+  - изменить жизнь
+  - жизнь мечты
+  - быстр\w*(?:\s+\w+){0,2}\s+заработ\w
+  - розыгр\w*
+  # prostitution
+  - вев queen
+  - \s(gogo|go\-go)
+  - (танцовщ|тaнцoвщ|интим)
+  - раскрепощенные сотрудницы
+  - компаньонка
+  - суррог
+  - требуются\s+девушк
 
-x_excls-multi_common: &x_excls-multi_common
-  - личный транспорт
+
 rusrek_com:
   incls:
     - Работа - требуются
-  excls:
-    - *x_excls_common
-  excls-multi:
-    - *x_excls-multi_common
+  excls: *x_excls_common
 JobsInNewYork:
   incls: []
-  excls:
-    - *x_excls_common
-  excls-multi:
-    - *x_excls-multi_common
+  excls: *x_excls_common
 jobs_in_new_york:
   incls: []
-  excls:
-    - *x_excls_common
-  excls-multi:
-    - *x_excls-multi_common
+  excls: *x_excls_common
 # nyjobsusa:
 #   incls: []
 #   excls:
 #     - *x_excls_common
-#   excls-multi:
-#     - *x_excls-multi_common

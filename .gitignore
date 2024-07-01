@@ -2,5 +2,5 @@ venv
 isushkov_robot.session
 isushkov_robot.session-journal
 filters/*-offsets.yml
-report.*
+filters/work-offsets-bac.yml
 log.txt

@@ -1,9 +1,0 @@
-parse.RUSREK_COM: done.
-parse.JOBSINNEWYORK: done.
-parse.JOBS_IN_NEW_YORK: done.
-parse.NYJOBSUSA: 18:17:17/09.19 - skip: excl "(авто|auto|avto|car)"
-parse.NYJOBSUSA: 18:17:17/09.19 - skip: excl "(водител|driver)"
-parse.NYJOBSUSA: done.
-RECEIVER: empty messages - DONE.
-RECEIVER: dublicated messages - DONE.
-REPORT: done.

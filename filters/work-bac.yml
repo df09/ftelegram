@@ -1,16 +1,13 @@
 x_excls_common: &x_excls_common
   # localization
   - '[а-я]+[iіїєґ]+[а-я]+|[iіїєґ]+[а-я]+|[а-я]+[iіїєґ]+' # украинский
-  - '[一-龯々-〆ツァ-ヶ口廾日丹几丅五乡穴亡卩从仨长厂丩右归人丁石丫广]' # япокский и китайские тексты
+  - '[一龯々〆ツァヶ口廾日丹几丅五乡穴亡卩从仨长厂丩右归人丁石丫广]' # япокский и китайские тексты
   - идиш # не предлагать идиш
-  - ас.+л\w*\s*алеик
   # location
   - staten island
   - long island
   - (alabama|alaska|arizona|arkansas|california|colorado|connecticut|delaware|florida|georgia|hawaii|idaho|illinois|indiana|iowa|kansas|kentucky|louisiana|maine|maryland|massachusetts|michigan|minnesota|mississippi|missouri|montana|nebraska|nevada|new hampshire|new jersey|new mexico|north carolina|north dakota|ohio|oklahoma|oregon|pennsylvania|rhode island|south carolina|south dakota|tennessee|texas|utah|vermont|virginia|washington|west virginia|wisconsin|wyoming)
   - (айдахо|айова|алабама|аляска|аризона|арканзас|вайоминг|вашингтон|вермонт|вирджиния|висконсин|гавайи|делавэр|джорджия|западная вирджиния|иллинойс|индиана|калифорния|канзас|кентукки|колорадо|коннектикут|луизиана|массачусетс|миннесота|миссисипи|миссури|мичиган|монтана|мэн|мэриленд|небраска|невада|нью-гэмпшир|нью-джерси|нью-мексико|огайо|оклахома|орегон|пенсильвания|род-айленд|северная дакота|северная каролина|теннесси|техас|флорида|южная дакота|южная каролина|юта)
-  - канад
-  - кипр
   # universal
   - хлебопекар
   - (бани|баня|баню)

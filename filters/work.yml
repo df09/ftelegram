@@ -1,24 +1,12 @@
 x_excls_common: &x_excls_common
   # cheked
   - \+1\(?929\)?909-?7575 # bartender
-  - seven17teen.d@gmail.com # it-gay
+  - seven17teen.d@gmail.com # tornike
   - \+1\(?347\)?696-?0201 # agent.leon
   - \+1\(?718\)?440-?6841 # ny.roma
-  - arthur@laptopmd.com # webdevelop wait
-  - 310-?528-?9321 # exec-assist wait
-  - 917-?442-?4778 # test-device wait
-  - lana@glasscompanyny.com # assist wait
-  - https://forms.kommo.com/rrccxlt # photo wait
-  - 997.?8737                       # photo wait
   - \(?347\)?985-?5964 # web-dis(lol)
-  - vadim@nyrender.nyc # arch wait
   - andrealowell074@gmail.com # xyd-met
   - \+1\(?718\)?568-?9739     # xyd-met
-  - \+1\(?800\)?560-?0214 # office-empl
-  - mikhail@russianconsulting.com # office-empl
-  - 212.?268.?9336                # office-empl
-  - 646.?236.?3939 # типография
-  - 347-733-4409 # русско-украинская кухня
 
   # localization
   - '[а-я]+[iіїєґ]+[а-я]+|[iіїєґ]+[а-я]+|[а-я]+[iіїєґ]+' # украинскии

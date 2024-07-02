@@ -26,13 +26,10 @@ x_excls_common: &x_excls_common
   - (идиш|кошерн) # не предлагать идиш
   # location
   - (alabama|алабама|alaska|аляска|arizona|аризона|arkansas|арканзас|california|калифорния|colorado|колорадо|connecticut|коннектикут|delaware|делавэр|florida|флорида|georgia|джорджия|hawaii|гаваии|idaho|аидахо|illinois|иллиноис|indiana|индиана|iowa|аиова|kansas|канзас|kentucky|кентукки|louisiana|луизиана|maine|мэн|maryland|мэриленд|massachusetts|массачусетс|michigan|мичиган|minnesota|миннесота|mississippi|миссисипи|missouri|миссури|montana|монтана|nebraska|небраска|nevada|невада|new|mpshire-нью-гэмпшир|new|xico-нью-мексико|north|rolina-севернаякаролина|north|kota-севернаядакота|ohio|огаио|oklahoma|оклахома|oregon|орегон|pennsylvania|пенсильвания|rhode|land-род-аиленд|south|rolina-южнаякаролина|south|kota-южнаядакота|tennessee|теннесси|texas|техас|utah|юта|vermont|вермонт|virginia|виргиния|washington|вашингтон|west|rginia-западнаявиргиния|wisconsin|висконсин|wyoming|ваиоминг)
-  # properties
-  - удаленка
 
   # driver/auto
   - (водител|driver|трак|грузов)
-  - (авто|auto|avto|car)
-  - налич\w*(?:\s+\w+){0,2}\s+авто
+  - (наличие|свой)\b.*\b(авто|автомоб)
   - (овнер|owner)\w*(\s+|\-)operator
   - диспетчер
   # construction
@@ -59,7 +56,6 @@ x_excls_common: &x_excls_common
   # restorans
   - пев\w?ц
   - музыкант
-  - тр[эа]вел\w*агент
   - гид по барам
   - фотограф
   # cooks
@@ -78,16 +74,13 @@ x_excls_common: &x_excls_common
   - \b(broker|брокер)\w*\b
   - (paralegal|адвокат)
   # enducation
-  - (school|школа)
-  - (учител|преподават|репетитор)
-  - детск\w* сад
+  - детск\w*\s+сад
 
   # style
-  - (make.?up|массаж|тренер|маникюр|парикмах|ресниц|бровист|ногтям|колорист|косметолог|барбер|barber|hair)
-  - (мужск\w*|женс\w*)\s+мастер
+  - (make.?up|массаж|тренер|маникюр|парикмах|ресниц|бровист|ногтям|колорист|косметолог)
   - body sculpting
   # medicine
-  - (апте|медицин|medic|врач|стоматолог|кардиолог)
+  - (медицин|medic|врач|стоматолог|кардиолог)
   - (dental|дентал)
   # care
   - (nursing|сиделк|home attend)
@@ -101,25 +94,20 @@ x_excls_common: &x_excls_common
   - часовщ
   - альпинизм
 
-  # spam
+  # spam.subcribe
   - news_about_USA
-  - (сертифи|курс|тренинг|консульт)
-  - (подписываи|вступ)
-  - рассылк
   - bazar\.club[^/]
+  - (подписываи|вступ)
   - больше вакансии.*facebook.*
-  - им+играци
+  # spam.lawyer
   - (убеж.?щ|uscis|i\-589|i\-765|i\-94)
   - заполн\w*(?:\s+\w+){0,2}\s+документ
-  - \w*(крипто|кpиптo|crypt|binance)
-  - (валют|инвести|актив|бирж)
-  - \b(usdt|rub|bitcoin)\b
+  # spam.lessons
+  - (сертифи|курс|тренинг|консульт)
+  # spam.looking-job/rent/sell/bay
   - ищу(?:\s+\w+){0,2}\s+работ
-  - need.*job
-  - (прод|обмен|сда[ет|ю]|аренд|куп[ить|лю])\w*
-  - \bfor sale\b
-  - (room|комнат|квартир|bedroom|\dbdr)\w*
-  - сниму
+  - (сниму|сдаю|куплю|продам|for rent)\b.*\b(room|комнат|квартир|студи|bedroom|авто|машин)\w*
+
   # scam
   - \w*(доход|работ|ворк|work|джоб|job)\w*(\s+\w+|\s*[^\w]+){0,2}(удален|дополнит|онлаин|online|дом[ау])
   - (удален|дополнит|онлаин|online|дом[ау])\w*(\s+\w+|\s*[^\w]+){0,2}\w*(доход|работ|ворк|work|джоб|job)
@@ -133,6 +121,11 @@ x_excls_common: &x_excls_common
   - жизнь мечты
   - быстр\w*(?:\s+\w+){0,2}\s+заработ\w
   - розыгр\w*
+  # scam.finances
+  - (прод|обмен|сда[ет|ю]|аренд|куп[ить|лю])\w*
+  - \w*(крипто|кpиптo|crypt|binance)
+  - \b(usdt|rub|bitcoin)\b
+  - (валют|инвести|актив|бирж)
   # prostitution
   - вев queen
   - \s(gogo|go\-go)
@@ -141,7 +134,6 @@ x_excls_common: &x_excls_common
   - компаньонка
   - суррог
   - требуются\s+девушк
-
 
 rusrek_com:
   incls:

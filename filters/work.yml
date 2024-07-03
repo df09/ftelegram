@@ -24,7 +24,7 @@ x_excls_common: &x_excls_common
   - (бригадир|foreman)
   - \b(строитель|строители)\b
   - (electricians|электрик)
-  - (plumber|welder|плотник)
+  - (plumber|welder|плотник|carpenter)
   - (mechanics|механик)
   - (маляр|штукатур)
   - hvac

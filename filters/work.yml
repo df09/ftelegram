@@ -1,5 +1,6 @@
 x_excls_common: &x_excls_common
   # cheked
+  - \+1\(?646\)?529-?9399 # el-video-1.vitalii
   - \+1\(?718\)?769-?9585 # веста
   - \+1\(?718\)?333-?0003 # vi-sa-vi
   - \+1\(?929\)?909-?7575 # bartender
@@ -84,7 +85,8 @@ x_excls_common: &x_excls_common
   - сапожник
   - часовщ
   - альпинизм
-  - радио.*ведущии
+  - ведущии
+  - редактор
   - \bultrasound\b
 
   # spam.subcribe

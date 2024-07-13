@@ -18,6 +18,9 @@ x_excls_common: &x_excls_common
   - (идиш|кошерн) # не предлагать идиш
   # location
   - (alabama|алабама|alaska|аляска|arizona|аризона|arkansas|арканзас|california|калифорния|colorado|колорадо|connecticut|коннектикут|delaware|делавэр|florida|флорида|georgia|джорджия|hawaii|гаваии|idaho|аидахо|illinois|иллиноис|indiana|индиана|iowa|аиова|kansas|канзас|kentucky|кентукки|louisiana|луизиана|maine|мэн|maryland|мэриленд|massachusetts|массачусетс|michigan|мичиган|minnesota|миннесота|mississippi|миссисипи|missouri|миссури|montana|монтана|nebraska|небраска|nevada|невада|new|mpshire-нью-гэмпшир|new|xico-нью-мексико|north|rolina-севернаякаролина|north|kota-севернаядакота|ohio|огаио|oklahoma|оклахома|oregon|орегон|pennsylvania|пенсильвания|rhode|land-род-аиленд|south|rolina-южнаякаролина|south|kota-южнаядакота|tennessee|теннесси|texas|техас|utah|юта|vermont|вермонт|virginia|виргиния|washington|вашингтон|west|rginia-западнаявиргиния|wisconsin|висконсин|wyoming|ваиоминг)
+  # gender/features
+  - ищ(ем|у)\s*(девушк|женщин)
+  - \bcdl\b
 
   # driver/auto
   - (водител|driver|трак|грузов)

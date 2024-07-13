@@ -97,21 +97,37 @@ def apply_chanel_filters(log_pfx, text, channel_ruls):
         exit()
     return True
 
+# parse/send
+def send_to_recv(log_pfx, render, pause=4):
+    client.loop.run_until_complete(client.send_message(receiver, render, link_preview=False))
+    l = cat(re.sub(r'\(https?://\S+|www\.\S+', '', " ".join(render.splitlines()[2:])))
+    print(f'{log_pfx} - SENDED: {l}')
+    run_tqdm(msg=f'{log_pfx} - wait {pause}s...', sec=pause, chart=' ..')
+
+def get_keys_to_remove(d):
+    # Создаем временный словарь для хранения последних ключей для каждого значения
+    temp_dict = {}
+    # Проходим по всем парам ключ-значение в исходном словаре
+    for key, value in d.items():
+        temp_dict[value] = key  # Перезаписываем ключ для каждого значения
+    # Создаем список для хранения ключей, которые будут удалены
+    keys_to_remove = []
+    # Проходим по всем парам ключ-значение в исходном словаре снова
+    for key, value in d.items():
+        # Если ключ не является последним для данного значения, добавляем его в список на удаление
+        if temp_dict[value] != key:
+            keys_to_remove.append(key)
+    return keys_to_remove
+
 # init vars
 receiver = 'grp_filter_work_isushkov'
 f_filters = 'filters/work.yml'
 f_offsets = 'filters/work-offsets.yml'
 filters = yml2dict(f_filters)
 offsets = yml2dict(f_offsets)
-
-# parse/send
 api_id = 29350618
 api_hash = '1d3d60a614af26ab32058f86f68a1536'
-def send_to_recv(log_pfx, render, pause=4):
-    client.loop.run_until_complete(client.send_message(receiver, render, link_preview=False))
-    l = cat(re.sub(r'\(https?://\S+|www\.\S+', '', " ".join(render.splitlines()[2:])))
-    print(f'{log_pfx} - SENDED: {l}')
-    run_tqdm(msg=f'{log_pfx} - wait {pause}s...', sec=pause, chart=' ..')
+
 with TelegramClient(f'isushkov_robot', api_id, api_hash) as client:
     # channels: parse and send
     for channel in filters:
@@ -127,12 +143,12 @@ with TelegramClient(f'isushkov_robot', api_id, api_hash) as client:
                     send_to_recv(log_pfx, render)
                 except errors.rpcerrorlist.FloodWaitError as e:
                     sec = int(str(e).split()[3]) + 30
-                    run_tqdm(f'{log_pfx} - blocked. wait {sec}s...', sec)
+                    run_tqdm(f'{log_pfx} - BLOCKED. wait {sec}s...', sec)
                     send_to_recv(log_pfx, render)
             # upd offset
             offsets[channel] = m.date
             dict2yml(offsets, f_offsets)
-        print(f'parse.{channel.upper()}: done.')
+        print(f'parse.{channel.upper()}: DONE.')
 
     # receiver: remove empty messages
     m_empty = {}
@@ -146,30 +162,28 @@ with TelegramClient(f'isushkov_robot', api_id, api_hash) as client:
     if m_empty:
         m_empty_ids = [str(i) for i in m_empty]
         client.loop.run_until_complete(client.delete_messages(receiver, message_ids=m_empty_ids))
-        print(f'RECEIVER: empty messages was removed:')
+        print(f'RECEIVER: empty messages:')
         for m in m_empty:
             l = cat(f'{str(m)}: "{m_empty[m]}"').replace('\n','\\n')
             print(f'    {l}')
-    print(f'RECEIVER: empty messages - DONE.')
+        print(f'RECEIVER: empty messages - DONE.')
+    else:
+        print(f'RECEIVER: empty messages - None.')
 
     # receiver: remove dublicated messages
-    m_hashs = {}
-    c = 0
+    m_hashes = {}
     for m in client.iter_messages(receiver, limit=999):
-        if not m.text: continue # skip admins messages
-        # prepare msg
+        if not m.text: continue # skip admins and empty messages
+        # clean text
         clear_text = ''.join(m.text.splitlines()[1:])
         clear_text = re.sub(r'\((tg|http[s]?)://[^\s]*\)', '()', clear_text)
-        clear_text = re.sub(r'[^a-zA-Zа-яА-Я]', '', clear_text)
-        m_hash = hash(clear_text)
-        m_dublicated_ids = [mid for mid,mhash in m_hashs.items() if mhash == m_hash]
-        if m_dublicated_ids:
-            c += 1
-            if c == 1:
-                print(f'RECEIVER: dublicated messages was removed:')
-            client.loop.run_until_complete(client.delete_messages(receiver, message_ids=[str(m.id)]))
-            l = cat(re.sub(r'\(https?://\S+|www\.\S+', '', f'{str(m.id)}: "{m.text}"').replace('\n',' '))
-            print(f'    {l}')
-        else:
-            m_hashs[m.id] = m_hash
-    print(f'RECEIVER: dublicated messages - DONE.')
+        clear_text = re.sub(r'[^a-zA-Zа-яА-Я0-9]', '', clear_text)
+        # done
+        m_hashes[m.id] = hash(clear_text)
+    keys_to_remove = get_keys_to_remove(m_hashes)
+    if keys_to_remove:
+        print(f'RECEIVER: dublicated messages: {", ".join(str(key) for key in keys_to_remove)}')
+        client.loop.run_until_complete(client.delete_messages(receiver, message_ids=keys_to_remove))
+        print(f'RECEIVER: dublicated messages - DONE.')
+    else:
+        print(f'RECEIVER: dublicated messages - None.')

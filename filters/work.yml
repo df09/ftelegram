@@ -1,16 +1,21 @@
 x_excls_common: &x_excls_common
   # cheked
-  - \+1\(?646\)?529-?9399 # el-video-1.vitalii
-  - \+1\(?718\)?769-?9585 # веста
-  - \+1\(?718\)?333-?0003 # vi-sa-vi
-  - \+1\(?929\)?909-?7575 # bartender
+  - \(?646\)?764-?2276 # spam ищу работу
+  - expertappliancegroup@gmail.com # ремонт быт-тех (вод-права, опыт)
+  - info@lmiabasolutions.com # дети с аунтизмом
+  - pogilklara@yahoo.com # agency-multi
+  - \(?929\)?501-?4380 # barmens-scam
+  - \(?646\)?529-?9399 # el-video-1.vitalii
+  - \(?718\)?769-?9585 # веста
+  - \(?718\)?333-?0003 # vi-sa-vi
+  - \(?929\)?909-?7575 # bartender
   - mdfedex1@gmail.com # post-clerk
   - seven17teen.d@gmail.com # tornike
-  - \+1\(?347\)?696-?0201 # agent.leon
-  - \+1\(?718\)?440-?6841 # ny.roma
+  - \(?347\)?696-?0201 # agent.leon
+  - \(?718\)?440-?6841 # ny.roma
   - \(?347\)?985-?5964 # web-dis(lol)
   - andrealowell074@gmail.com # xyd-met
-  - \+1\(?718\)?568-?9739     # xyd-met
+  - \(?718\)?568-?9739     # xyd-met
 
   # localization
   - '[а-я]+[iіїєґ]+[а-я]+|[iіїєґ]+[а-я]+|[а-я]+[iіїєґ]+' # украинскии
@@ -68,18 +73,20 @@ x_excls_common: &x_excls_common
   - (бухгалтер|bookkeeper)
   - \b(broker|брокер)\w*\b
   - (paralegal|адвокат)
+  - (logistics|логист)
   # enducation
   - детск\w*\s+сад
 
   # style
   - (make.?up|массаж|тренер|маникюр|парикмах|ресниц|бровист|ногтям|колорист|косметолог)
   - body sculpting
+  - manicurist
   # medicine
   - (медицин|medic|врач|стоматолог|кардиолог)
   - (dental|дентал)
   # care
   - (nursing|сиделк|home attend)
-  - (ННА|HHA|Home Care|няня|няню|нянь|няни|бебисит\w*)
+  - (ННА|HHA|Home Care|няня|няню|нянь|няни|бебисит\w*|babysitter)
   - престарел\w+
 
   # artissants/other

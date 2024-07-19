@@ -15,7 +15,7 @@ x_excls_common: &x_excls_common
   - \(?718\)?440-?6841 # ny.roma
   - \(?347\)?985-?5964 # web-dis(lol)
   - andrealowell074@gmail.com # xyd-met
-  - \(?718\)?568-?9739     # xyd-met
+  - \(?718\)?568-?9739 # xyd-met
 
   # localization
   - '[а-я]+[iіїєґ]+[а-я]+|[iіїєґ]+[а-я]+|[а-я]+[iіїєґ]+' # украинскии
